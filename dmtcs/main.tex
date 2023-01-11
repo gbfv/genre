@@ -260,13 +260,13 @@ The subgraph $G_{\mid C(v)}$ is the {\emph{strongly connected component}} of $G$
 The {\emph{condensation graph}} Cond$(G)$ of $G$ is the directed graph determined by $$V_{\rm{Cond}(G)} = V/\!\! \sim_{V},  \ \ \ E_{\rm{Cond}(G)} = E - \{ e \in E \ | \ s(e) \sim_{V} t(e) \}$$
 $$ s|_{\rm{Cond}(G)}(e) = [s(e)], \ \ \ t|_{\rm{Cond}(G)}(e) = [t(e)].$$
 \end{definition} 
-\noindent Informally speaking, the {\emph{condensation}} graph ${\rm{Cond}}(G)$ is the result of contracting each strongly connected component to a vertex, removing every self-loop:
+\noindent Informally speaking, the {\emph{condensation}} graph $C(G)$ is the result of contracting each strongly connected component to a vertex, removing every self-loop. To give a precise meaning to this statement, we recall the {\emph{excision}} operation, Exc: it consists in removing all self-loops of a graph (see \cite[Def.~1]{BD22}).
 
 \begin{lemma}
-Let $\sim_{E}$ be the equivalence relation defined on $E$ by $e \sim_{E} f$ if $s(e) \sim_{V} t(e)$ and let $G'$ be the directed graph defined by $V_{G'} = V/\!\!\sim_{V}$, $E_{G'} = E/\!\!\sim_{E}$. Then $\rm{Cond}(G) = {\rm{Exc}}(G')$.
+Let $\sim_{E}$ be the equivalence relation defined on $E$ by $e \sim_{E} f$ if $s(e) \sim_{V} t(e)$ and let $C^{\circlearrowleft}(G) = (V',E')$ be the directed graph defined by $V' = V/\!\!\sim_{V}$, $E' = E/\!\!\sim_{E}$. Then $C(G) = {\rm{Exc}}(C^{\circlearrowleft}(G))$.
 \end{lemma}
 
-There is a partial order on the vertices of ${\rm{Cond}}(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. Hence Cond$(G)$ is a directed acyclic graph.  It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
+There is a partial order on the vertices of $C(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. Hence Cond$(G)$ is a directed acyclic graph.  It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
 
 \begin{example} \label{example:three_scc}
 The directed graph below has three strongly connected components.
@@ -315,14 +315,14 @@ We have $C_1 \leq C_2 \leq C_3$ and $C_{3}$ is a maximal vertex of the condensat
 
 
 \begin{lemma}
-A directed emulator morphism $G \to H$ induces a directed emulator morphism ${\rm{Cond}}(G) \to {\rm{Cond}}(H)$.
+A directed emulator morphism $G \to H$ induces a directed emulator morphism $C(G) \to C(H)$.
 \end{lemma}
 
 \begin{proof}
-A graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{{\rm{Cond}}(G)} \to V_{{\rm{Cond}}(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
-Define $q': E_{{\rm{Cond}}(G)} \to E_{{\rm{Cond}}(H)}$ by restricting $q$ to $E_{G} - \{ e \in E_{G} \ | \ s(e) \sim_{V_{G}} t(e) \}$. 
-Since $(p,q)$ is a graph morphism, $$[p](s_{{\rm{Cond}}(G)}(e)) = [p]([s(e)]) = [p(s(e))] = [s(q(e))] = s_{{\rm{Cond}}(H)}(q'(e))$$ and similarly $[q](t_{{\rm{Cond}}(G)}(e)) = t_{{\rm{Cond}}(H)}(q'(e))$, so $([p],q'): {\rm{Cond}}(G) \to {\rm{Cond}}(H)$ is a graph morphism. 
-Suppose that we started from a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q')$. Let $[v] \in {\rm{Cond}}(H)$ and let $e \in E_{{\rm{Cond}}(H)}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $C(v)$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$ and $q'(e') = q(e') = e$. Hence $([p],q')$ is a directed emulator morphism.
+A graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{C(G)} \to V_{C(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
+Define $q': E_{C(G)} \to E_{C(H)}$ by restricting $q$ to $E_{G} - \{ e \in E_{G} \ | \ s(e) \sim_{V_{G}} t(e) \}$. 
+Since $(p,q)$ is a graph morphism, $$[p](s_{C(G)}(e)) = [p]([s(e)]) = [p(s(e))] = [s(q(e))] = s_{C(H)}(q'(e))$$ and similarly $[q](t_{C(G)}(e)) = t_{C(H)}(q'(e))$, so $([p],q'): C(G) \to C(H)$ is a graph morphism. 
+Suppose that we started from a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q')$. Let $[v] \in C(H)$ and let $e \in E_{C(H)}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $C(v)$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$ and $q'(e') = q(e') = e$. Hence $([p],q')$ is a directed emulator morphism.
 \end{proof}
 
 

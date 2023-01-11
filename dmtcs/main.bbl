@@ -1,0 +1,87 @@
+\begin{thebibliography}{}
+
+%\bibitem[AGH17]{AGH17}
+%Remi C. Avohou, Joseph  Ben Geloun and
+%Mahouton N. Hounkonnou, 
+%\newblock Embedding Half-Edge Graphs in Punctured Surfaces.
+%\newblock Preprint, 2017.
+
+\bibitem[BH62]{Ad62}
+Joseph Battle, Frank Harary, Yukihiro Kodama and J.~W.~T.~Young,
+\newblock Additivity of the genus of
+a graph. 
+\newblock Bull. Amer. Math. Soc., 68(6): 565--568, 1962.
+
+\bibitem[BC76]{BC76}
+Ronald~V.~Book and Ashok~K.~Chandra, 
+\newblock Inherently planar automata, 
+\newblock Acta Informatica~6, 89--94, 1976.
+
+
+\bibitem[BD16]{BD16}
+Guillaume Bonfante and Florian Deloup.
+\newblock The genus of regular languages, 
+\newblock Math. Structures in Computer Science~28(1), 14--44, 2018. 
+
+\bibitem[BD19]{BD19}
+Guillaume Bonfante and Florian Deloup.
+\newblock Decidability of Regular Language Genus Computation, 
+\newblock Math. Structures in Computer Science~29(9), 1428--1443, 2019.
+
+\bibitem[BD22]{BD22}
+Guillaume Bonfante and Florian Deloup.
+\newblock The decidability of the genus of regular languages and directed emulators, 
+\newblock arxiv.org/abs/2109.05735v3.
+
+\bibitem[FD17]{FD17}
+Florian Deloup.
+\newblock Topological Star Height.
+\newblock Preprint, 2017.
+
+
+\bibitem[Eil74]{Eilenberg} 
+Samuel Eilenberg.
+\newblock {\emph{Automata, Languages and Machines}}, vol. A.
+\newblock Academic Press, New York 1974.
+
+\bibitem[FL88]{FL88}
+Michael~R. Fellows and Michael~A. Langston.
+\newblock Nonconstructive tools for proving polynomial-time decidability.
+\newblock {\em J. ACM}, 35(3):727--739, June 1988.
+
+\bibitem[Hl99]{Hl99}
+Petr Hlin\v{e}n\'y.
+\newblock A note on possible extensions of Negami's conjecture.
+\newblock Journal of Graph Theory 32 (3), 233--240, 1999.
+
+%\bibitem[KKR12]{KKR12}
+%Ken-ichi Kawarabayashi, Yusuke Kobayashi, Bruce Reed. 
+%\newblock The disjoint paths problem in quadratic time.
+%\newblock Journal of Combinatorial Theory, Series B, 102 (2), 424--435, 2012.
+
+%\bibitem[RY09]{RY09}
+%Yoav Rieck and Yosushi Yamashita.
+%\newblock Finite Planar Emulators for $K_{4,5} - K_{2}$ and
+%$K_{1,2,2,2}$ and Fellows conjecture. 
+%\newblock European Journal of Combinatorics 31, 903--907, 2010.
+%
+%\bibitem[RS04]{RS04}
+%Neil Roberston and Paul Seymour.
+%\newblock Graph Minors. XX. Wagner's conjecture.
+%\newblock Journal of Combinatorial Theory, Series B, 92 (2): 325–357, 2004.
+
+\bibitem[Kup17]{Kuperberg} Denis Kuperberg, Directed Minors for Minimal Automata, preprint, 2017.
+
+\bibitem[Sak03]{Sak03} Jacques Sakarovitch. 
+\newblock {\emph{Elements of Automata Theory}}.
+\newblock Cambridge University Press, Cambridge, 2009.
+
+\bibitem[St83]{Stallings} John Stallings. \newblock
+Topology of finite graphs.
+\newblock Inventiones Math.~71, 551--565, 1983.
+
+%\bibitem[Ye11]{Yeats} Karen Yeats,
+%\newblock {\emph{A Combinatorial Perspective on Quantum Field Theory}}.
+%\newblock Springer, 2017.
+
+\end{thebibliography}

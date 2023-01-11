@@ -253,8 +253,20 @@ A graph has a planar emulator if and only if each of its biconnected components 
 
 
 \subsection{Reduction to strongly connected components}
-Let $G$ be a directed graph. Two vertices $v, w \in V_{G}$ are {\emph{strongly connected}} if there exists a directed path from $v$ to $w$ and a directed path from $w$ to $v$. Let $C(v)$ be the set of all vertices that are strongly connected to a vertex $v$.
-The subgraph $G_{\mid C(v)}$ is the {\emph{strongly connected component}} of $G$ containing $v$. If $G$ is finite, then it has a finite number of strongly connected components. Contracting each strongly connected component to a vertex yields the {\emph{condensation}} graph ${\rm{Cond}}(G)$ of $G$. It is a directed acyclic graph. Hence there is a partial order on the vertices of ${\rm{Cond}}(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
+Let $G = (V,E,s,t)$ be a directed graph. Two vertices $v, w \in V_{G}$ are {\emph{strongly connected}} if there exists a directed path from $v$ to $w$ and a directed path from $w$ to $v$. Strong connectedness is an equivalence relation $\sim_{V}$ on $V$. Let $C(v)$ be the set of all vertices that are strongly connected to a vertex $v$.
+The subgraph $G_{\mid C(v)}$ is the {\emph{strongly connected component}} of $G$ containing $v$. If $G$ is finite, then it has a finite number of strongly connected components. 
+
+\begin{definition}
+The {\emph{condensation graph}} Cond$(G)$ of $G$ is the directed graph determined by $$V_{\rm{Cond}(G)} = V/\!\! \sim_{V},  \ \ \ E_{\rm{Cond}(G)} = E - \{ e \in E \ | \ s(e) \sim_{V} t(e) \}$$
+$$ s|_{\rm{Cond}(G)}(e) = [s(e)], \ \ \ t|_{\rm{Cond}(G)}(e) = [t(e)].$$
+\end{definition} 
+\noindent Informally speaking, the {\emph{condensation}} graph ${\rm{Cond}}(G)$ is the result of contracting each strongly connected component to a vertex, removing every self-loop:
+
+\begin{lemma}
+Let $\sim_{E}$ be the equivalence relation defined on $E$ by $e \sim_{E} f$ if $s(e) \sim_{V} t(e)$ and let $G'$ be the directed graph defined by $V_{G'} = V/\!\!\sim_{V}$, $E_{G'} = E/\!\!\sim_{E}$. Then $\rm{Cond}(G) = {\rm{Exc}}(G')$.
+\end{lemma}
+
+There is a partial order on the vertices of ${\rm{Cond}}(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. Hence Cond$(G)$ is a directed acyclic graph.  It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
 
 \begin{example} \label{example:three_scc}
 The directed graph below has three strongly connected components.
@@ -300,6 +312,19 @@ The condensation graph is
 \end{center}
 We have $C_1 \leq C_2 \leq C_3$ and $C_{3}$ is a maximal vertex of the condensation graph.
 \end{example}
+
+
+\begin{lemma}
+A directed emulator morphism $G \to H$ induces a directed emulator morphism ${\rm{Cond}}(G) \to {\rm{Cond}}(H)$.
+\end{lemma}
+
+\begin{proof}
+A graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{{\rm{Cond}}(G)} \to V_{{\rm{Cond}}(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
+Define $q': E_{{\rm{Cond}}(G)} \to E_{{\rm{Cond}}(H)}$ by restricting $q$ to $E_{G} - \{ e \in E_{G} \ | \ s(e) \sim_{V_{G}} t(e) \}$. 
+Since $(p,q)$ is a graph morphism, $$[p](s_{{\rm{Cond}}(G)}(e)) = [p]([s(e)]) = [p(s(e))] = [s(q(e))] = s_{{\rm{Cond}}(H)}(q'(e))$$ and similarly $[q](t_{{\rm{Cond}}(G)}(e)) = t_{{\rm{Cond}}(H)}(q'(e))$, so $([p],q'): {\rm{Cond}}(G) \to {\rm{Cond}}(H)$ is a graph morphism. 
+Suppose that we started from a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q')$. Let $[v] \in {\rm{Cond}}(H)$ and let $e \in E_{{\rm{Cond}}(H)}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $C(v)$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$ and $q'(e') = q(e') = e$. Hence $([p],q')$ is a directed emulator morphism.
+\end{proof}
+
 
 Recall that an \emph{undirected tree} is an undirected connected acyclic graph.
 A \emph{directed tree} is a connected directed acyclic graph $G$ whose underlying undirected graph $U(G)$ is a undirected tree. A (directed, resp. undirected) {\emph{forest}} is a disjoint union of (directed, resp. undirected) trees.
@@ -478,12 +503,11 @@ from a vertex $\tilde{v} \in V_{C_{v}}$ to a vertex $\tilde{w} \in V_{C_{w}}$.
 
 2) for each edge $\arete{v'}{e'}{w'}$ in $E_{H'}$ emulating an edge $\arete{v}{e}{w}$ in $E_{H}$, we create a copy of the corresponding edge $\arete{\tilde{v'}}{\tilde{e'}}{\tilde{w'}} \in E_{G}$ where $\tilde{v'} \in V_{C_{v}}$ and $\tilde{w'} \in V_{C_{w}}$.
 
-This yields a directed graph $G'$. Define an emulator morphism $G' \to G$ by sending each copy of a scc $C_{v}$ to the corresponding scc in $G$ and sending each remaining edge from one vertex in a scc $C_{v}$ to another in another scc $C_{w}$ to the corresponding edge in $G$. By definition, the condensation graph of $G'$ is $H'$ which is a directed tree. Furthermore, by hypothesis, the scc's of $G'$ are copies of the scc's of $G$ and therefore are all planar. Therefore, the elementary lemma below (whose proof is left to the reader) applies to $G'$ and this finishes the proof.
+This yields a directed graph $G'$. Define an emulator morphism $G' \to G$ by sending each copy of a scc $C_{v}$ to the corresponding scc in $G$ and sending each remaining edge from one vertex in a scc $C_{v}$ to another in another scc $C_{w}$ to the corresponding edge in $G$. By definition, the condensation graph of $G'$ is $H'$ which is a directed tree. Furthermore, by hypothesis, the scc's of $G'$ are copies of the scc's of $G$ and therefore are all planar. Therefore, the elementary lemma below (whose proof is left to the reader) applies to $G'$ and this finishes the proof. \end{proof}
 
 \begin{lemma}
 If a directed graph has a directed tree as its condensation graph and if all its strongly connected components are planar, then it is planar.
 \end{lemma}
-\end{proof}
 
 \begin{example}[Example \ref{example:three_scc}, continued]
 Splitting the maximal vertex of the condensation graph, we obtain the tree
@@ -541,9 +565,8 @@ Replacing each vertex by a copy of the corresponding strongly connected componen
 \end{center}
 \end{example}
 
-\begin{theorem}
-A directed emulator morphism induces a directed emulator morphism on the induced condensation graphs.
-\end{theorem}
+We shall now prove that Theorem~\ref{th:planar_iff_scc_planar} does not generalize in genus $> 0$.  
+
 
 
 

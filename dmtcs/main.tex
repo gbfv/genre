@@ -116,7 +116,7 @@
 \begin{document}
 
 \title[Some structural results on the genus of a regular language]{Some structural results on the genus of a regular language}
-\author{Guillaume Bonfante${}^1$, Florian Deloup${}^2$	 
+\author{Guillaume Bonfante${}^1$, Florian Deloup${}^2$
 }
 \address{1- Universit\'e de Lorraine - LORIA - Nancy\\
 	2- Universit\'e Paul Sabatier - IMT - Toulouse}
@@ -132,11 +132,11 @@ The article continues our study of the genus of a regular language $L$, defined 
 
 \section{Introduction}
 
-In our article~\cite{BD16}, we defined the genus of a regular language $L$: this is the minimal genus of a deterministic automaton recognizing the language $L$. A planar language is a language with genus $0$. We showed that a minimal genus deterministic automaton recognizing a given language has not minimal size in general, thus differs from the minimal automaton in the sense of Myhill-Nerode. We also showed that the genus yields a hierarchy of regular languages by producing regular languages having arbitrary high genus. One major remaining conjecture is that the genus of a regular language is computable. While we proved the conjecture for the class of languages having ``no small cycles'' \cite[Theorem~5]{BD19}, the general case remain open. 
+In our article~\cite{BD16}, we defined the genus of a regular language $L$: this is the minimal genus of a deterministic automaton recognizing the language $L$. A planar language is a language with genus $0$. We showed that a minimal genus deterministic automaton recognizing a given language has not minimal size in general, thus differs from the minimal automaton in the sense of Myhill-Nerode. We also showed that the genus yields a hierarchy of regular languages by producing regular languages having arbitrary high genus. One major remaining conjecture is that the genus of a regular language is computable. While we proved the conjecture for the class of languages having ``no small cycles'' \cite[Theorem~5]{BD19}, the general case remain open.
 
 In our subsequent work \cite{BD22}, we provided a graph-theoretical framework for the search of a deterministic automaton of minimal genus recognizing the language: the notion of a directed emulator of a directed graph encapsulates at the level of directed graphs any automaton that is equivalent to a Myhill-Nerode minimal automaton for a given language. We recall the precise definition in... In particular, we proved that a regular language $L$ has genus less or equal to $g$ if and only if its minimal automaton has a directed emulator of genus less of equal to $g$ \cite[Theorem~5]{BD22}.
 
-In this paper, we use this result to study further the genus of a regular language and the interplay between directed graphs and 
+In this paper, we use this result to study further the genus of a regular language and the interplay between directed graphs and
 
 \section{Directed emulators}
 
@@ -209,15 +209,15 @@ The graph below is a connected graph with two blocks and two cut-vertices:
 \path (F1) edge node [] {} (F2);
 %\path (F2) edge node [] {} (F3);
 %\path (F3) edge node [bend right] {} (F2);
-\path (F3) edge node [] {} (F1); 
-\path (F1) edge node [] {} (G0); 
+\path (F3) edge node [] {} (F1);
+\path (F1) edge node [] {} (G0);
 \path (G0) edge [loop below=10mm] node {} (G0);
 \path (G0) edge node [] {} (H1);
 \path (H1) edge node [] {} (H2);
 \path (H2) edge  node [] {} (H4);
 \path (H4) edge node [] {} (H1);
 \path (H1) edge node [] {} (H3);
-\path (H3) edge node [] {} (H4); 
+\path (H3) edge node [] {} (H4);
 \path (G0) edge node [] {} (H2);
 \draw (F3.120) edge node [] {} (F2.-120);
 \draw (F3.60) edge node [] {} (F2.-60);
@@ -237,7 +237,7 @@ Let $G$ be a  graph with blocks $G_{i}, i \in I$. Suppose that $G_{i}$ has an em
 Let $(p,q): G' \to G$ be an emulator morphism. Each block $G_{i} \subseteq G$ induces a directed emulator morphism $G_{i}' \to G_{i}$. Since the genus is additive on blocks \cite{Ad62}, $g(G') = \sum_{i \in I} g(G_{i})$. Thus $g(G')$ is minimal if and only if each $g(G_{i})$ is minimal.
 \end{proof}
 
-\begin{corollary} 
+\begin{corollary}
 \label{cor:min_genus_emulator_is_additive_on_connected_components}
 Let $G$ be a  graph with connected components $G_{i}, i \in I$. Suppose that $G_{i}$ has an emulator with minimal genus $g_{i}$. Then $G$ has a directed emulator with minimal genus $\sum_{i \in I} g_{i}$.
 \end{corollary}
@@ -252,11 +252,11 @@ A graph has a planar emulator if and only if each of its biconnected components 
 
 
 \subsection{Reduction to strongly connected components}
-Let $G$ be a directed graph. Two vertices $v, w \in V_{G}$ are {\emph{strongly connected}} if there exists a directed path from $v$ to $w$ and a directed path from $w$ to $v$. Let $C(v)$ be the set of all vertices that are strongly connected to a vertex $v$. 
+Let $G$ be a directed graph. Two vertices $v, w \in V_{G}$ are {\emph{strongly connected}} if there exists a directed path from $v$ to $w$ and a directed path from $w$ to $v$. Let $C(v)$ be the set of all vertices that are strongly connected to a vertex $v$.
 The subgraph $G_{\mid C(v)}$ is the {\emph{strongly connected component}} of $G$ containing $v$. If $G$ is finite, then it has a finite number of strongly connected components. Contracting each strongly connected component to a vertex yields the {\emph{condensation}} graph ${\rm{Cond}}(G)$ of $G$. It is a directed acyclic graph. Hence there is a partial order on the vertices of ${\rm{Cond}}(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
 
 \begin{example} \label{example:three_scc}
-The directed graph below has three strongly connected components. 
+The directed graph below has three strongly connected components.
 \begin{center}
 \begin{tikzpicture}[->,transform shape,scale=0.5, baseline=-2mm]
 \node[etat](G0) at (0,0){};
@@ -269,15 +269,15 @@ The directed graph below has three strongly connected components.
 \node[etat] (H4) at (4,0) {};
 \path (F1) edge node [] {} (F2);
 \path (F2) edge node [] {} (F3);
-\path (F3) edge node [] {} (F1); 
-\path (F1) edge node [] {} (G0); 
+\path (F3) edge node [] {} (F1);
+\path (F1) edge node [] {} (G0);
 \path (G0) edge [loop below=10mm] node {} (G0);
 \path (G0) edge node [] {} (H1);
 \path (H1) edge node [] {} (H2);
 \path (H2) edge  node [] {} (H4);
 \path (H4) edge node [] {} (H1);
 \path (H1) edge node [] {} (H3);
-\path (H3) edge node [] {} (H4); 
+\path (H3) edge node [] {} (H4);
 \path (G0) edge node [] {} (H2);
 \draw[red, dash dot] (-2.75,0) circle[radius=1.5];
 \draw[red, dash dot] (0,0) circle[radius=1];
@@ -334,8 +334,8 @@ So we form a new graph $G_1$ defined by
 $$ V_{G_{1}} = V_{G} - \{ w \} \cup \{ w_{v}\ | \ v \in s({\rm{InE}}(w)) \},$$
 $$ E_{G_{1}} = E_{G} - {\rm{InE}}_{G}(w) \cup \{ \arete{v}{e_v}{w_{v}} \ | \ v \in s({\rm{InE}}(w)) \}.$$
 Note that this is still a directed acyclic graph where the set of maximal vertices contains $\{ w_{v} \ | \ v \in {\rm{InE}}_{G}(w) \}$.
-Next we define a map $(p_1, q_1): G_{1} \to G$ by 
-$$ p_{1}(v) = \left\{ 
+Next we define a map $(p_1, q_1): G_{1} \to G$ by
+$$ p_{1}(v) = \left\{
 \begin{array}{cl}
 v & {\hbox{if}}\ v\in V_{G} - \{ w \};\\
 w & {\hbox{if}}\ v = w_{v}\ {\hbox{for some}}\ v \in s({\rm{InE}}(w)).
@@ -348,7 +348,7 @@ $$ q_{1}(\arete{x}{}{y}) = \left\{
 \end{array}
 \right.
 $$
-This is a directed emulator morphism. 
+This is a directed emulator morphism.
 Given a vertex $v$ in a graph $G$, denote by $P_{G}(v)$ the subgraph of $G$ induced by the set of all directed paths starting at $v$ (including $v$). Here we note that $P_{G_{1}}(v)$ is a tree for every vertex $v \in s({\rm{InE}}(w))$. We proceed as above with each maximal element $w \in G$ (in any order). In the end, we obtain a directed acyclic graph, denoted $G_{1}$, which is a directed emulator of $G$ and whose set of maximal vertices is the set $\{ w_{v} \ | \ v \in {\rm{InE}}(w), \ w\ {\hbox{maximal in}}\ G \}$ of copies of the maximal vertices of $G$.
 We say that $G_1$ is obtained from $G$ by \emph{splitting} the maximal vertices of $G$.
 
@@ -357,8 +357,8 @@ Suppose that we have defined a directed graph $G_{n}$ with the following propert
 \item[1.] $G_{n}$ is a directed emulator of $G$;\\
 \item[2.] For every vertex $v \in V_{G_n}$ such that $v$ is at distance at most $n$ of some maximal vertex $w$ in $V_{G_n}$, the set $P_{G_{n}}(v)$ of all directed paths from $v$ is a directed tree.
 \end{enumerate}
-Then we can produce a directed emulator $G_{n+1}$ of $G$ as follows. For each maximal vertex $w \in G_{n}$, record the incoming edges in ${\rm{InE}}_{G_n}(w)$. Let $s({\rm{InE}}_{G_{n}}(w))$ be the set of source vertices. 
-First remove all directed trees $P_{G_{n}}(v)$ for each vertex $v \in V_{G_{n}}$ such that $v$ is at distance at most $n$ of some maximal vertex $w \in V_{G_{n}}$. This yields a new directed acyclic graph $G_{n}'$. 
+Then we can produce a directed emulator $G_{n+1}$ of $G$ as follows. For each maximal vertex $w \in G_{n}$, record the incoming edges in ${\rm{InE}}_{G_n}(w)$. Let $s({\rm{InE}}_{G_{n}}(w))$ be the set of source vertices.
+First remove all directed trees $P_{G_{n}}(v)$ for each vertex $v \in V_{G_{n}}$ such that $v$ is at distance at most $n$ of some maximal vertex $w \in V_{G_{n}}$. This yields a new directed acyclic graph $G_{n}'$.
 Splitting each maximal vertex $w'$ of $G_{n}'$, we obtain a new directed acyclic graph $G_{n}''$ which is a directed emulator of $G_{n}'$. Let $(p,q):G_{n}'' \to G_{n}'$ be the directed emulator morphism. Each vertex $v \in G_{n}''$ is sent to a vertex $p(v) \in V_{G_{n}'} \subset V_{G_{n}}$. If $p(v) \in V_{G_{n}}$ is at distance $n+1$ from a maximal vertex $w \in G_{n}$, we attach a new directed tree from $v$ to a new vertex which is a copy of $w$. The resulting graph is denoted $G_{n+1}$ and contains $G_{n}''$ as a subgraph.
 
 \begin{center}
@@ -367,7 +367,7 @@ Splitting each maximal vertex $w'$ of $G_{n}'$, we obtain a new directed acyclic
 \node[etat] (B) at (\X+2,0){$B$};
 \node[etat] (A) at (\X,0){$A$};
 \node[etat] (C) at (\X-2,0){$C$};
-\node[etat, red] (E) at (\X,-2){$E$}; 
+\node[etat, red] (E) at (\X,-2){$E$};
 \node[font=\LARGE] (G0) at (\X,-6){$G_{0}$};
 \path (A) edge node [] {} (B);
 \path (A) edge node [] {} (C);
@@ -378,7 +378,7 @@ Splitting each maximal vertex $w'$ of $G_{n}'$, we obtain a new directed acyclic
 \node[etat] (B) at (\X+8,0){$B$};
 \node[etat] (A) at (\X+6,0){$A$};
 \node[etat] (C) at (\X+4,0){$C$};
-\node[etat, red] (EA) at (\X+6,-2){$E$}; 
+\node[etat, red] (EA) at (\X+6,-2){$E$};
 \node[etat, red] (EB) at (\X+8,-2){$E$};
 \node[etat, red] (EC) at (\X+4,-2){$E$};
 \node[font=\LARGE] (G1) at (\X+6,-6){$G_{1}$};
@@ -430,12 +430,12 @@ Splitting each maximal vertex $w'$ of $G_{n}'$, we obtain a new directed acyclic
 \end{center}
 
 
-Clearly, for every vertex $v \in G_n$ such that $v$ is at distance at most $n+1$ of some maximal element $w$ in $G_n$, $P_{G_{n}}(v)$ is a tree. Moreover, we claim that $G_{n+1}$ is a directed emulator of $G$. First, build a directed emulator $G_{n+1} \to G_{n}$ as follows. We start with the directed emulator morphism $(p,q):G_{n}'' \to G_{n}'$. Send every new edge $\arete{v}{}{w_{v}}$ in $G_{n+1}$ where $w_{v}$ is a copy of a maximal element $w$ in $G_{n}$ to the edge $\arete{p(v)}{}{w}$ in ${G_{n}}$. This extends the previous emulator morphism to a directed emulator morphism $G_{n+1} \to G_{n}$. Since by (1), $G_{n}$ is a directed emulator of $G$, it follows by composition of directed emulator morphisms (Lemma \ref{lem:comp}) that $G_{n+1}$ is a directed emulator of $G$. We have therefore showed that properties (1) and (2) are hereditary. Finally, we note that there is some integer $n > 0$ such that for every vertex $v$, there is a maximal vertex $w$ such that the distance from $v$ to $w$ is at most $n$ (so that $G_{n+1} = G_{n}$). 
+Clearly, for every vertex $v \in G_n$ such that $v$ is at distance at most $n+1$ of some maximal element $w$ in $G_n$, $P_{G_{n}}(v)$ is a tree. Moreover, we claim that $G_{n+1}$ is a directed emulator of $G$. First, build a directed emulator $G_{n+1} \to G_{n}$ as follows. We start with the directed emulator morphism $(p,q):G_{n}'' \to G_{n}'$. Send every new edge $\arete{v}{}{w_{v}}$ in $G_{n+1}$ where $w_{v}$ is a copy of a maximal element $w$ in $G_{n}$ to the edge $\arete{p(v)}{}{w}$ in ${G_{n}}$. This extends the previous emulator morphism to a directed emulator morphism $G_{n+1} \to G_{n}$. Since by (1), $G_{n}$ is a directed emulator of $G$, it follows by composition of directed emulator morphisms (Lemma \ref{lem:comp}) that $G_{n+1}$ is a directed emulator of $G$. We have therefore showed that properties (1) and (2) are hereditary. Finally, we note that there is some integer $n > 0$ such that for every vertex $v$, there is a maximal vertex $w$ such that the distance from $v$ to $w$ is at most $n$ (so that $G_{n+1} = G_{n}$).
 This completes the proof by induction.
 \end{proof}
 
 %\begin{remark} \label{rem:simple_directed_acyclic_emulator}
-%The construction given in the proof yields a {\emph{simple}} planar directed acyclic 
+%The construction given in the proof yields a {\emph{simple}} planar directed acyclic
 %emulator.
 %\end{remark}
 
@@ -445,7 +445,7 @@ A directed acyclic graph has a simple planar directed emulator.
 
 
 \begin{corollary}\label{cor:acyclic_minimal_det_implies_planar}
-Any regular language whose mininal deterministic automaton is acyclic is planar. 
+Any regular language whose mininal deterministic automaton is acyclic is planar.
 \end{corollary}
 
 \begin{proof}
@@ -472,8 +472,8 @@ Suppose $G' \to G$ is a directed emulator morphism, with $G'$ planar. The restri
 Since $H$ is a directed acyclic graph, $H$ has a simple directed emulator $H'$ that is a tree (by Theorem~\ref{th:dag_has_simple_tree_as_directed_emulator}) which is again acyclic. Consider the directed emulator morphism $(p,q):H' \to H$ built by successive splitting of maximal elements as in the proof of Theorem~\ref{th:dag_has_simple_tree_as_directed_emulator}. Maximal vertices of $H'$ are sent to maximal vertices of $H$ by the corresponding directed emulator morphism $(p,q):H' \to H$. We build a new directed graph out of $H'$ as follows. Recall that each vertex $v \in H$ stands for a scc $C_{v}$ of $G$ and that each edge $\arete{v}{e}{w} \in E_{H}$
 stands for an edge $\arete{\tilde{v}}{\tilde{e}}{\tilde{w}} \in E_{G}$
 from a vertex $\tilde{v} \in V_{C_{v}}$ to a vertex $\tilde{w} \in V_{C_{w}}$.
- 
-1) For each vertex $v' \in p^{-1}(v)$, we create a copy of the scc $C_{v}$ indexed by $v \in V_{H}$. This is the reverse operation of the contraction of the scc $C_{v}$ to a single vertex $v$ (performed for each vertex in the preimage of $v$); 
+
+1) For each vertex $v' \in p^{-1}(v)$, we create a copy of the scc $C_{v}$ indexed by $v \in V_{H}$. This is the reverse operation of the contraction of the scc $C_{v}$ to a single vertex $v$ (performed for each vertex in the preimage of $v$);
 
 2) for each edge $\arete{v'}{e'}{w'}$ in $E_{H'}$ emulating an edge $\arete{v}{e}{w}$ in $E_{H}$, we create a copy of the corresponding edge $\arete{\tilde{v'}}{\tilde{e'}}{\tilde{w'}} \in E_{G}$ where $\tilde{v'} \in V_{C_{v}}$ and $\tilde{w'} \in V_{C_{w}}$.
 
@@ -516,20 +516,20 @@ Replacing each vertex by a copy of the corresponding strongly connected componen
 \node[etat] (K4) at (\X+2, -\Y) {};
 \path (F1) edge node [] {} (F2);
 \path (F2) edge node [] {} (F3);
-\path (F3) edge node [] {} (F1); 
-\path (F1) edge node [] {} (G0); 
+\path (F3) edge node [] {} (F1);
+\path (F1) edge node [] {} (G0);
 \path (G0) edge [loop below=10mm] node {} (G0);
 %\path (G0) edge node [] {} (H1);
 \path (H1) edge node [] {} (H2);
 \path (H2) edge  node [] {} (H4);
 \path (H4) edge node [] {} (H1);
 \path (H1) edge node [] {} (H3);
-\path (H3) edge node [] {} (H4); 
+\path (H3) edge node [] {} (H4);
 \path (K1) edge node [] {} (K2);
 \path (K2) edge  node [] {} (K4);
 \path (K4) edge node [] {} (K1);
 \path (K1) edge node [] {} (K3);
-\path (K3) edge node [] {} (K4); 
+\path (K3) edge node [] {} (K4);
 \path (G0) edge [bend left] node {} (H2);
 \path (G0) edge [bend right] node {} (K1);
 \draw[red, dash dot] (-2.75,0) circle[radius=1.5];
@@ -551,14 +551,14 @@ refinement of the star height taking into account only topologicaly nontrivial c
 \end{remark}
 
 \begin{corollary} \label{cor:language_planar_iff_det_has_planar_scc}
-A regular language is planar if and only if it is recognized by a deterministic automaton $\A$ such that the underlying directed graph ${\rm{G}}_{\A}$ has planar strongly connected components. 
+A regular language is planar if and only if it is recognized by a deterministic automaton $\A$ such that the underlying directed graph ${\rm{G}}_{\A}$ has planar strongly connected components.
 \end{corollary}
 
 \begin{proof}
 Follows from Theorem~\ref{th:fund} and Theorem~\ref{th:planar_iff_scc_planar}.
 \end{proof}
 
-A key observation is that Theorem~\ref{th:planar_iff_scc_planar} and Corollary~\ref{cor:language_planar_iff_det_has_planar_scc} do not generalize to a result analogous to that of Lemma~\ref{lem:min_genus_emulator_is_additive_on_blocks} for higher genus. 
+A key observation is that Theorem~\ref{th:planar_iff_scc_planar} and Corollary~\ref{cor:language_planar_iff_det_has_planar_scc} do not generalize to a result analogous to that of Lemma~\ref{lem:min_genus_emulator_is_additive_on_blocks} for higher genus.
 
 
 
@@ -575,24 +575,24 @@ A key observation is that Theorem~\ref{th:planar_iff_scc_planar} and Corollary~\
 
 
 
-We say that a directed graph $G$ is {\emph{a support of a language}}\footnote{``recognizes'' n'est pas mal non plus.} $L$ whenever there is a deterministic automaton $\A$ such that 
+We say that a directed graph $G$ is {\emph{a support of a language}}\footnote{``recognizes'' n'est pas mal non plus.} $L$ whenever there is a deterministic automaton $\A$ such that
 \begin{enumerate}
 \item[(i)] $L(\A) = L$ (i.e. the automaton $\A$ recognizes the language $L$);
 \item[(ii)] ${\mathrm{G}}_{\A} = G$ (i.e. the automaton $\A$ induces the directed graph $G$).
 \end{enumerate}
  We do not require the automaton $\A$ to be minimal in the definition.
-A directed graph can be shared by distinct languages. 
-Let $\mathscr{L}(G)$ be the set of languages 
+A directed graph can be shared by distinct languages.
+Let $\mathscr{L}(G)$ be the set of languages
 supported by $G$.
 
 
 This section is devoted to the following question. Consider two non-isomorphic graphs. Are they the support of the same languages?
 
-The question will arise later for the two graphs $H_1$ and $H_2$ of Example~\ref{ex:deux-langages}. %following graphs $H_1$ (on the left)  and $H_2$ (on the right).  
+The question will arise later for the two graphs $H_1$ and $H_2$ of Example~\ref{ex:deux-langages}. %following graphs $H_1$ (on the left)  and $H_2$ (on the right).
 
 
 \begin{prop}
-If $G$ and $G'$ are isomorphic then $\mathscr{L}(G) = \mathscr{L}(G')$. 
+If $G$ and $G'$ are isomorphic then $\mathscr{L}(G) = \mathscr{L}(G')$.
 \end{prop}
 
 \begin{proof} Given a language $L \in \mathscr{L}(G)$, there is an automaton $\A = ( Q, A, I, F, \delta )$ recognizing $L$ such that $\mathrm{G}_\A = G$. Let $(p,q) : G \to G'$ be an isomorphism. Let $\A' = (p(Q), A, p(I), p(F), \delta'\rangle$ with $q \stackrel{a}{\to} q' \in \delta$ iff $p(q) \stackrel{a}{\to}  p(q') \in \delta'$ for any $a \in A$. Then, $(p,q)$ defines a conformal morphism and  thus (Prop. \ref{prop:strict-conformal-implies-same-language}) $L \in \mathscr{L}(G')$. By symmetry, the result holds.
@@ -613,17 +613,17 @@ The converse direction does not hold in general. Let us consider the two graphs 
 \end{tikzpicture}
 \end{center}
 
-They are clearly not isomorphic, but they support the same languages. One may argue that the graph on the right is not the image by the functor $\mathrm{G}$ of an accessible automaton (there is at least one nonaccessible state). So, let us focus on the problem for rooted graphs, that is those graphs for which there is one vertex from which all others can be reached. 
+They are clearly not isomorphic, but they support the same languages. One may argue that the graph on the right is not the image by the functor $\mathrm{G}$ of an accessible automaton (there is at least one nonaccessible state). So, let us focus on the problem for rooted graphs, that is those graphs for which there is one vertex from which all others can be reached.
 
 \begin{prop}\label{pr:eq:aut}
-Let $G$ and $G'$ be rooted graphs such that $\mathscr{L}(G) = \mathscr{L}(G')$, then, $G \simeq G'$. 
+Let $G$ and $G'$ be rooted graphs such that $\mathscr{L}(G) = \mathscr{L}(G')$, then, $G \simeq G'$.
 \end{prop}
 
 \begin{proof}Let $G$ be a rooted graph. Let $\A$ be the automaton defined as follows. First, set $\mathrm{G}_\A = G$. We define the initial state to be the (a) rooted node. The set of final state is defined to be $V_G$, that is any state is final. Finally, for any edge $e : q \to q'$, set the transition $q \stackrel{e}{\to} q' \in \A$. This defines a language $L \subseteq E_G^*$.  Since $L \in   \mathscr{L}(G')$, there is an automaton $\A'$ such that $\mathrm{G}_{\A'} = G'$. Actually, $\A$ is a minimal automaton. Thus, in the category of automata, we know that there is an onto morphism $\pi : \A' \to \A$. But then, $\mathrm{G}_\pi : G' \to G$ is a graph onto-morphism.  By symmetry, there is an onto-morphism $G \to G'$. And thus, $G$ and $G'$ are isomorphic.
 \end{proof}
 
-The solution above may look like cheating. We play freely with the alphabet, an hypothesis that cannot be always done. Let us fix an alphabet $\Sigma$ and define $\mathscr{L}_\Sigma(G) =  \mathscr{L}(G)  \cap \{ L \mid L \subseteq \Sigma^* \}$.  Then, 
-\begin{prop}Let $G$ and $G'$ be rooted graphs such that $\mathscr{L}_\Sigma(G) = \mathscr{L}_\Sigma(G')$, then, $G \simeq G'$ does not hold in general. 
+The solution above may look like cheating. We play freely with the alphabet, an hypothesis that cannot be always done. Let us fix an alphabet $\Sigma$ and define $\mathscr{L}_\Sigma(G) =  \mathscr{L}(G)  \cap \{ L \mid L \subseteq \Sigma^* \}$.  Then,
+\begin{prop}Let $G$ and $G'$ be rooted graphs such that $\mathscr{L}_\Sigma(G) = \mathscr{L}_\Sigma(G')$, then, $G \simeq G'$ does not hold in general.
 \end{prop}
 
 \begin{proof}We propose a proof with a three letter alphabet $\Sigma = \{A, B, C \}$. It can be easily adapted to an other alphabet size but $|\Sigma| = 1$. Consider the two graphs $T_0$ and $T_1$:
@@ -664,24 +664,24 @@ The solution above may look like cheating. We play freely with the alphabet, an 
  \end{tikzpicture}
 \end{center}
 
-Since the two graphs are not isomorphic, it is sufficient to prove that $\mathscr{L}_\Sigma(T_0) = \mathscr{L}_\Sigma(T_1)$. It is clear that any language on $T_1$ is a language on $T_0$ (just split $q'_3$ into two equivalent states). But, actually, the converse holds. Suppose that $\A_0 = ( V_{T_0}, i_0, F_0, \delta_0 )$ is an automaton recognizing some language $L$ such that $\mathrm{G}_{\A_0} = T_0$. We build an automaton $\A_1 = ( V_{T_1}, i_1, F_1, \delta_1 ) $ recognizing $L$ such that $\mathrm{G}_{\A_1} = T_1$. Let $\phi : V_{T_0} \to V_{T_1}$ defined by $p \mapsto p', r \mapsto r'$. The map on the $q_i$'s with $i \in \{1, 2, 3\}$ will be defined next.  Concerning the initial state, we set $i_1 = \phi(i_0)$.  Concerning the final states, $p'$ is final if $p$ is, $r'$ is final if $r$ is. 
+Since the two graphs are not isomorphic, it is sufficient to prove that $\mathscr{L}_\Sigma(T_0) = \mathscr{L}_\Sigma(T_1)$. It is clear that any language on $T_1$ is a language on $T_0$ (just split $q'_3$ into two equivalent states). But, actually, the converse holds. Suppose that $\A_0 = ( V_{T_0}, i_0, F_0, \delta_0 )$ is an automaton recognizing some language $L$ such that $\mathrm{G}_{\A_0} = T_0$. We build an automaton $\A_1 = ( V_{T_1}, i_1, F_1, \delta_1 ) $ recognizing $L$ such that $\mathrm{G}_{\A_1} = T_1$. Let $\phi : V_{T_0} \to V_{T_1}$ defined by $p \mapsto p', r \mapsto r'$. The map on the $q_i$'s with $i \in \{1, 2, 3\}$ will be defined next.  Concerning the initial state, we set $i_1 = \phi(i_0)$.  Concerning the final states, $p'$ is final if $p$ is, $r'$ is final if $r$ is.
 
-Then, by case on the intermediate states. If none are final in $\A_0$, none is final in $A_1$ and we set $q_1 \mapsto q'_1$ and $q_i \mapsto {q'_3}, i = 2,3$. If exactly one is final in $\A_0$, say $q_k$. We set $q'_1$ as final, $q'_3$ as not and $q_k \mapsto q'_1$, $q_j \mapsto q'_3$, $j\neq k$. If exactly two are final in $\A_0$, say $q_j, q_k$ are final and $q_i$ not. Then, set $q'_3$ as final, $q_1'$ as not and $q_j, q_k \mapsto q'_3$ and $q_i \mapsto q'_1$. Finally if the three are final in $\A_0$, set $q'_1$ and $q'_3$ as final in $\A_1$ and $q_1 \mapsto q'_1, q_i \mapsto q'_3, i = 2, 3$. To end the construction, we set the transitions respecting the final states. The automaton $\A_1$ recognizes the language $L$. 
+Then, by case on the intermediate states. If none are final in $\A_0$, none is final in $A_1$ and we set $q_1 \mapsto q'_1$ and $q_i \mapsto {q'_3}, i = 2,3$. If exactly one is final in $\A_0$, say $q_k$. We set $q'_1$ as final, $q'_3$ as not and $q_k \mapsto q'_1$, $q_j \mapsto q'_3$, $j\neq k$. If exactly two are final in $\A_0$, say $q_j, q_k$ are final and $q_i$ not. Then, set $q'_3$ as final, $q_1'$ as not and $q_j, q_k \mapsto q'_3$ and $q_i \mapsto q'_1$. Finally if the three are final in $\A_0$, set $q'_1$ and $q'_3$ as final in $\A_1$ and $q_1 \mapsto q'_1, q_i \mapsto q'_3, i = 2, 3$. To end the construction, we set the transitions respecting the final states. The automaton $\A_1$ recognizes the language $L$.
 \end{proof}
 
-\begin{remark} For $|\Sigma| = 1$, the proposition holds. That is  if $\mathscr{L}_\Sigma(G) = \mathscr{L}_\Sigma(G')$, then, $G \simeq G'$.  It is actually a corollary of Proposition~\ref{pr:eq:minaut}. 
+\begin{remark} For $|\Sigma| = 1$, the proposition holds. That is  if $\mathscr{L}_\Sigma(G) = \mathscr{L}_\Sigma(G')$, then, $G \simeq G'$.  It is actually a corollary of Proposition~\ref{pr:eq:minaut}.
 \end{remark}
 
 
-There is a simple condition to recover the isomorphism property. 
- 
+There is a simple condition to recover the isomorphism property.
+
  \begin{prop}\label{pr:eq:minaut}
- Given two minimal automata $\A_1$ and $\A_2$ such that $\mathscr{L}_\Sigma(  \mathrm{G}_{\A_1} ) = \mathscr{L}_\Sigma(  \mathrm{G}_{\A_2} )$, then $\mathrm{G}_{\A_1} \simeq \mathrm{G}_{\A_2}$.  
+ Given two minimal automata $\A_1$ and $\A_2$ such that $\mathscr{L}_\Sigma(  \mathrm{G}_{\A_1} ) = \mathscr{L}_\Sigma(  \mathrm{G}_{\A_2} )$, then $\mathrm{G}_{\A_1} \simeq \mathrm{G}_{\A_2}$.
   \end{prop}
-  
-  \begin{proof}  An adaptation of the proof of Proposition~\ref{pr:eq:aut} where $\A_1$ in the statement plays the role of $\A$ in the proof. 
+
+  \begin{proof}  An adaptation of the proof of Proposition~\ref{pr:eq:aut} where $\A_1$ in the statement plays the role of $\A$ in the proof.
   \end{proof}
- 
+
 To come back to Example~\ref{ex:deux-langages}, the two are the images of two minimal automata below (on alphabet $\Sigma = \{a, b\}$). Since they are non isomorphic, by contraposition,  $\mathscr{L}_\Sigma(H_1) \neq \mathscr{L}_\Sigma(H_2)$. For instance,
 
 \vspace{-2cm}\hspace{-4cm}
@@ -747,8 +747,8 @@ To come back to Example~\ref{ex:deux-langages}, the two are the images of two mi
 \draw (init) edge[->] (v00);
 \draw (v00) edge[->]  (final);
 \end{tikzpicture}
- 
-We have two remarks concerning the example. First, let us mention that one should be careful with $H_1$. Indeed, swapping $0$ and $7$ is an automorphism (they both point on $1$ and $4$, and they are both pointed by $3$ and $6$). The same holds for respectively $(1,4)$, $(2,5)$ and $(3,6)$. So, it is necessary to cross the letters to keep the automaton minimal.  Second remark. For this particular example, we have a more direct proof. In $H_1$, all cycles have length 0 modulo 4 where in $H_2$, there are cycles of length $4 \times n + 2$ with $n>0$. The pumping lemma shows that there are path in $H_2$ that cannot be present in $H_1$. 
+
+We have two remarks concerning the example. First, let us mention that one should be careful with $H_1$. Indeed, swapping $0$ and $7$ is an automorphism (they both point on $1$ and $4$, and they are both pointed by $3$ and $6$). The same holds for respectively $(1,4)$, $(2,5)$ and $(3,6)$. So, it is necessary to cross the letters to keep the automaton minimal.  Second remark. For this particular example, we have a more direct proof. In $H_1$, all cycles have length 0 modulo 4 where in $H_2$, there are cycles of length $4 \times n + 2$ with $n>0$. The pumping lemma shows that there are path in $H_2$ that cannot be present in $H_1$.
 %
 %\section{A class of small genus languages}
 %
@@ -803,11 +803,11 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %%%\end{remark}
 %%
 %%\begin{proof}
-%%It is clear that $\Amin(L)$ embeds into the torus (see for instance \cite[Figure 7]{BD18}). Hence we need only to verify that $g(L) \geq 1$. Consider a finite deterministic automaton $\A$ for $L$, that embeds in a closed oriented surface of minimal genus, that is, $g(\A) = g(L)$. Note tha there is no self-loop and no simple cycle of length $2$ in $\Amin(L)$. According to Lemma \cite[S 6, Lemma 1]{BD18}, there is no self-loop and no simple cycle of length $2$ in $\A$. There are six simple (directed) cycles of length $3$ in $\Amin(L)$. 
-%%Can we prove that there are at most six simple cycles in $\A$ ? 
+%%It is clear that $\Amin(L)$ embeds into the torus (see for instance \cite[Figure 7]{BD18}). Hence we need only to verify that $g(L) \geq 1$. Consider a finite deterministic automaton $\A$ for $L$, that embeds in a closed oriented surface of minimal genus, that is, $g(\A) = g(L)$. Note tha there is no self-loop and no simple cycle of length $2$ in $\Amin(L)$. According to Lemma \cite[S 6, Lemma 1]{BD18}, there is no self-loop and no simple cycle of length $2$ in $\A$. There are six simple (directed) cycles of length $3$ in $\Amin(L)$.
+%%Can we prove that there are at most six simple cycles in $\A$ ?
 %%If yes, then ok : genus formula implies that $g(\A) \geq 1$.
 %%According to the genus formula for the minimal embedding of $\A$, $$ g(\A) = 1 - \frac{3}{8}f_1 - \frac{1}{4}f_2 - \frac{1}{8}f_3 + ({\hbox{non-negative terms}}).$$
-%%Since there is no self-loop and no cycle of length $2$, there is no face of length $1$ and no  
+%%Since there is no self-loop and no cycle of length $2$, there is no face of length $1$ and no
 %%face of length $2$ in the embedding (need to rule out monofacial edges in the embedding). Thus
 %%$$ g(\A) = 1 - \frac{1}{8}f_3 + {\hbox{non-negative terms}}.$$
 %%Since $g(\A)$ is an integer, since $f_3 < 8$ it follows that $g(\A) \geq 1$.
@@ -817,93 +817,93 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %
 %\section{The quest of small non planar languages}
 %
-%Our experiments aims to delineate the smallest languages (with respect to the size of their minimal automaton) on a two-letter alphabet that are not planar. To do that, we searched for small directed graphs that have no planar emulators, that is applying  Theorem~\ref{th:genus-and-emulator}. 
+%Our experiments aims to delineate the smallest languages (with respect to the size of their minimal automaton) on a two-letter alphabet that are not planar. To do that, we searched for small directed graphs that have no planar emulators, that is applying  Theorem~\ref{th:genus-and-emulator}.
 %
 %But, before enumerating all directed graphs, we first compute emulators on their underlying undirected graphs. Indeed, according to Theorem~\ref{thm:embedding},  when the underlying undirected graph has a planar emulator, any of its directions will have a planar emulator. As an approximation of the existence of planar emulators, we used the (non directed version of) {\bf fast\_is\_planar} algorithm (to be presented below). Since there are much less graph than directed graphs, this is a good filter catch the best candidates.
 %
-%We present the algorithms for directed graphs, but they are easily adapted to the undirected ones. 
+%We present the algorithms for directed graphs, but they are easily adapted to the undirected ones.
 %
 %\subsection{A greedy algorithm: {\bf fast\_is\_planar}}
 %
-%First, we have implemented a greedy algorithm {\tt fast\_is\_planar} which can be briefly explained as follows. 
+%First, we have implemented a greedy algorithm {\tt fast\_is\_planar} which can be briefly explained as follows.
 %
 %\vspace{2ex}
 %{\bf fast\_is\_planar}($G, k$)
 %
-%{\bf Input}: a directed graph $G$ and a size limit $k$, 
+%{\bf Input}: a directed graph $G$ and a size limit $k$,
 %
 %{\bf Output}: A planar emulator of $G$ or "{\bf Don't know}": no planar emulator has been found.
 %\vspace{2ex}
 %
-%%The principle of the algorithm is as follows. 
-%First, we initialize the process. We compute a \emph{spanning tree} $H$ of $G$.  We put a mark on all its vertices. We build the projection map $\pi : V_H \to V_G$ defined by $u \in V_H \mapsto u$.  
+%%The principle of the algorithm is as follows.
+%First, we initialize the process. We compute a \emph{spanning tree} $H$ of $G$.  We put a mark on all its vertices. We build the projection map $\pi : V_H \to V_G$ defined by $u \in V_H \mapsto u$.
 %
 %The principle is then, while the list of marked vertices is not empty, to complete it. Let us say $u$ is marked. Suppose that $u$ is projected on $\pi(u) = u_0$ in $G$. Then, we search for some node $t_0$ in $G$ such that:
 %\begin{enumerate}
-%\item  $u_0 \to t_0$ in $G$ and 
-%\item there is no edge $u \to v$ in $H$ such that $\pi(v) = t_0$. 
+%\item  $u_0 \to t_0$ in $G$ and
+%\item there is no edge $u \to v$ in $H$ such that $\pi(v) = t_0$.
 %\end{enumerate}
 %Then, there are three cases, tried in sequence:
 %\begin{enumerate}
 %\item[(A)] there is no such vertex $t_0$. In that case, we remove the mark on $u$,
-%\item[(B)] there is a vertex $t$ in $H$ such that 
+%\item[(B)] there is a vertex $t$ in $H$ such that
 %\begin{itemize}
-%\item $\pi(t) = t_0$  and 
+%\item $\pi(t) = t_0$  and
 %\item adding an edge $u \to t$ in $H$ keeps the graph planar, in which case we add the edge to $H$,
-%\end{itemize} 
+%\end{itemize}
 %\item[(C)] or there is no such vertex $t$. Then, we add a new state $w$ and a new edge $u \to w$ to $H$, we put a mark on $w$ and we set $\pi(w) = t_0$.
-%\end{enumerate} 
+%\end{enumerate}
 %
-%The algorithm ends when we cannot make progress, that is either the size limit has been reached and we cannot append a new vertex, or there is no marked vertices, in which case $H$ is actually a planar embedding of $G$. Indeed, all along $H$ is planar, and the fact that there is no vertex in $H$ such that conditions (1),(2) apply shows that $\pi$ is actually an emulator. 
-% 
-%% The algorithm ends when there is no more marked vertex, in which case either we found a solution, and the answer is "Yes, it is planar", or not, that is "Don't know". 
+%The algorithm ends when we cannot make progress, that is either the size limit has been reached and we cannot append a new vertex, or there is no marked vertices, in which case $H$ is actually a planar embedding of $G$. Indeed, all along $H$ is planar, and the fact that there is no vertex in $H$ such that conditions (1),(2) apply shows that $\pi$ is actually an emulator.
 %
-%The implementation of the algorithm involves two lists, one for the collection of marked vertices, one for the collection of edges within $G$. Since we pick elements in these two lists, several strategies are possible. Actually, we pick them either at the beginning or at the end (which more or less corresponds to some depth-first or breadth-first traversals). Since the algorithm is very fast, we try the four possibilities. 
+%% The algorithm ends when there is no more marked vertex, in which case either we found a solution, and the answer is "Yes, it is planar", or not, that is "Don't know".
+%
+%The implementation of the algorithm involves two lists, one for the collection of marked vertices, one for the collection of edges within $G$. Since we pick elements in these two lists, several strategies are possible. Actually, we pick them either at the beginning or at the end (which more or less corresponds to some depth-first or breadth-first traversals). Since the algorithm is very fast, we try the four possibilities.
 %
 %Finally, we implemented a randomized version of the algorithm. First, we choose randomly the marked node $u$.  Second, we merge case (B) and (C) into (D):
 %
 %\begin{itemize}
-%\item[(D)] We choose randomly either a new vertex $w$ as in (C) or (randomly) a vertex $t$  as in (B). We apply the respective transformation. 
+%\item[(D)] We choose randomly either a new vertex $w$ as in (C) or (randomly) a vertex $t$  as in (B). We apply the respective transformation.
 %\end{itemize}
 %
-%To keep the size of $H$'s under control, we used a global bound $\lambda$ set to $ 5 \times n$ with $n$ the size of the input graph. Actually, we did some experiments to set up this value. 
+%To keep the size of $H$'s under control, we used a global bound $\lambda$ set to $ 5 \times n$ with $n$ the size of the input graph. Actually, we did some experiments to set up this value.
 %
 %We have computed the 33878 directed graphs of size 8 whose out-degree is exactly $2$ (that is graphs corresponding to deterministic automata on a two-letter alphabet). On these graphs, we computed the size $\mathbf{fast\_is\_planar}(G)$ of the planar graph that was found by the fast procedure (if it exists!). Then, in the diagram, in the $X$-axis, the size of planar emulators, in $Y$-axis, the number of graphs $G$ for which $\mathbf{fast\_is\_planar}(G)$ outputs a graph whose size corresponds to the $X$-axis. The $Y$-axis is in logarithmic scale to show an exponential decrease:
 %
 %
 %%\begin{tikzpicture}
-%%\begin{axis}[height=4cm, 
-%%                   width=10cm, 
+%%\begin{axis}[height=4cm,
+%%                   width=10cm,
 %%                   axis x line=bottom,
 %%                   enlarge x limits=false,
 %%                   axis y line=left,
 %%                   ]
 %%\addplot[mark=|, draw=blue] coordinates {
-%%(8,8588) 
-%%(9,6613) 
-%%(10,5010) 
-%%(11,4669) 
-%%(12,3411) 
-%%(13,2183) 
-%%(14,1076) 
-%%(15,666) 
-%%(16,536) 
-%%(17,348) 
-%%(18,251) 
-%%(19,156) 
-%%(20,106) 
-%%(21,67) 
-%%(22,54) 
-%%(23,37) 
-%%(24,31) 
-%%(25,14) 
-%%(26,15) 
-%%(27,9) 
-%%(28,9) 
-%%(29,5) 
-%%(30,5) 
-%%(31,5) 
-%%(32,3) 
+%%(8,8588)
+%%(9,6613)
+%%(10,5010)
+%%(11,4669)
+%%(12,3411)
+%%(13,2183)
+%%(14,1076)
+%%(15,666)
+%%(16,536)
+%%(17,348)
+%%(18,251)
+%%(19,156)
+%%(20,106)
+%%(21,67)
+%%(22,54)
+%%(23,37)
+%%(24,31)
+%%(25,14)
+%%(26,15)
+%%(27,9)
+%%(28,9)
+%%(29,5)
+%%(30,5)
+%%(31,5)
+%%(32,3)
 %%};
 %%\end{axis}
 %%\end{tikzpicture}
@@ -912,38 +912,38 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %
 %
 %\begin{tikzpicture}
-%\begin{axis}[height=4cm, 
-%                   width=10cm, 
+%\begin{axis}[height=4cm,
+%                   width=10cm,
 %                   axis x line=bottom,
 %                   enlarge x limits=false,
 %                   axis y line=left,
 %                   ymode=log]
 %\addplot[mark=|, draw=blue] coordinates {
-%(8,8588) 
-%(9,6613) 
-%(10,5010) 
-%(11,4669) 
-%(12,3411) 
-%(13,2183) 
-%(14,1076) 
-%(15,666) 
-%(16,536) 
-%(17,348) 
-%(18,251) 
-%(19,156) 
-%(20,106) 
-%(21,67) 
-%(22,54) 
-%(23,37) 
-%(24,31) 
-%(25,14) 
-%(26,15) 
-%(27,9) 
-%(28,9) 
-%(29,5) 
-%(30,5) 
-%(31,5) 
-%(32,3) 
+%(8,8588)
+%(9,6613)
+%(10,5010)
+%(11,4669)
+%(12,3411)
+%(13,2183)
+%(14,1076)
+%(15,666)
+%(16,536)
+%(17,348)
+%(18,251)
+%(19,156)
+%(20,106)
+%(21,67)
+%(22,54)
+%(23,37)
+%(24,31)
+%(25,14)
+%(26,15)
+%(27,9)
+%(28,9)
+%(29,5)
+%(30,5)
+%(31,5)
+%(32,3)
 %};
 %\addplot[mark=none, draw=red,] coordinates { (8,10000)  (32,2.3)  };
 %\end{axis}
@@ -952,12 +952,12 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %
 %\subsection{The complete semi-algorithm}
 %
-%The other algorithm {\tt full\_is\_planar} computes all planar graphs of size smaller than some limit which can be projected on $G_0$. 
+%The other algorithm {\tt full\_is\_planar} computes all planar graphs of size smaller than some limit which can be projected on $G_0$.
 %
 %\vspace{2ex}
 %{\bf full\_is\_planar}($G, k$)
 %
-%{\bf Input}: a directed graph $G$ and a size limit $k$, 
+%{\bf Input}: a directed graph $G$ and a size limit $k$,
 %
 %{\bf Output}: A planar emulator of $G$ or "{\bf No}": no planar emulator of size smaller than $k$ has been found.
 %\vspace{2ex}
@@ -973,15 +973,15 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %\item only one node may be a root,
 %\item the do not contain bigons.
 %\end{itemize}
-%The first four properties are almost immediate. The last one is discussed in the next section. 
-% 
+%The first four properties are almost immediate. The last one is discussed in the next section.
+%
 %The experiments were done within {\sc sage}'s framework.  First, we made a list of all (undirected) graphs of size $N$, with $N =5, 6, 7, \ldots$ verifying
 %\begin{itemize}
 %\item the graph is connected
 %\item any vertex has degree bigger than $2$,
 %\item the graph does not contain a bigon,
 %\end{itemize}
-%thanks to {\tt nauty}'s package and its authors, Brendan McKay and Adolfo Piperno. These graph encompass the underlying underlying graphs verifying (A). In table~\ref{table:exp}, we show the respective number of graphs and directed graphs.  After the filtering step, we compute all directions of the graphs and for each of them, we use the {\bf fast\_is\_planar} algorithm for directed graph. The result is shown in the fifth column. 
+%thanks to {\tt nauty}'s package and its authors, Brendan McKay and Adolfo Piperno. These graph encompass the underlying underlying graphs verifying (A). In table~\ref{table:exp}, we show the respective number of graphs and directed graphs.  After the filtering step, we compute all directions of the graphs and for each of them, we use the {\bf fast\_is\_planar} algorithm for directed graph. The result is shown in the fifth column.
 %
 %\begin{center}
 %\begin{tabular}{| l | l | l | l | l | p{2cm} | p{17mm} | }
@@ -1006,7 +1006,7 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %\end{center}
 %
 %
-%For size $N= 8$, there are only two graphs that were not found to have a planar emulator with the fast procedure. These two graphs are respectively $H_1$ and $H_2$ mentioned in the previous section. Actually, those two graphs contain only cycles of size bigger than 4. Thus, according to Theorem~XXX in~\cite{}, they do not have planar emulators. In other words, the fast procedure filtered exactly graphs without planar emulators. 
+%For size $N= 8$, there are only two graphs that were not found to have a planar emulator with the fast procedure. These two graphs are respectively $H_1$ and $H_2$ mentioned in the previous section. Actually, those two graphs contain only cycles of size bigger than 4. Thus, according to Theorem~XXX in~\cite{}, they do not have planar emulators. In other words, the fast procedure filtered exactly graphs without planar emulators.
 %
 %
 %
@@ -1015,20 +1015,20 @@ We have two remarks concerning the example. First, let us mention that one shoul
 %
 %%To avoid as most as possible the {\tt full\_is\_planar} algorithms, we used the following additional trick. First, we verified that all graphs without bigons have a planar emulator. Consider a graph $G$ with exactly one bigon \begin{tikzpicture}[->,transform shape,scale=0.7, baseline=-1mm]]
 %%\node[etat] (H1) at (0,0) {v};
-%%\node[etat] (H2) at (1.5,0) {w}; 
+%%\node[etat] (H2) at (1.5,0) {w};
 %%\path [] (H1) edge[bend left] node {} (H2)
 %%            (H1) edge[bend right] node {} (H2);
-%%\end{tikzpicture} between to vertices $v$ and $w$. Suppose (A) that there is a node $u$ without connections to $v$ can be treated as follows.  Let $G'$ be obtained from $G$ by removing one of the edges between $v$ and $w$. Consider now the graph $G''$ obtained from $G'$ by adding an edge between $v$ and $u$. It contains one bigon less than $G$, thus $0$ bigon, thus has a planar emulator. Since $G'$ is a subgraph of $G''$ so do $G'$ and thus so do $G$. So, for graphs with one bigon, we don't need to consider graphs verifying (A). Avoiding (A) for a graph means it has the shape: 
+%%\end{tikzpicture} between to vertices $v$ and $w$. Suppose (A) that there is a node $u$ without connections to $v$ can be treated as follows.  Let $G'$ be obtained from $G$ by removing one of the edges between $v$ and $w$. Consider now the graph $G''$ obtained from $G'$ by adding an edge between $v$ and $u$. It contains one bigon less than $G$, thus $0$ bigon, thus has a planar emulator. Since $G'$ is a subgraph of $G''$ so do $G'$ and thus so do $G$. So, for graphs with one bigon, we don't need to consider graphs verifying (A). Avoiding (A) for a graph means it has the shape:
 %%\begin{tikzpicture}[->,transform shape,scale=0.7, baseline=-1mm]]
 %%\node[etat] (H1) at (0,0) {v};
-%%\node[etat] (H2) at (1.5,0) {w}; 
+%%\node[etat] (H2) at (1.5,0) {w};
 %%\path [] (H1) edge[bend left] node {} (H2)
 %%            (H1) edge[bend right] node {} (H2);
-%%\end{tikzpicture} 
+%%\end{tikzpicture}
 %%
 %%For bigons of the shape \begin{tikzpicture}[->,transform shape,scale=0.7, baseline=-1mm]]
 %%\node[etat] (H1) at (0,0) {v};
-%%\node[etat] (H2) at (1.5,0) {w}; 
+%%\node[etat] (H2) at (1.5,0) {w};
 %%\path [] (H1) edge[bend left] node {} (H2)
 %%            (H2) edge[bend left] node {} (H1);
 %%\end{tikzpicture}, the approach is similar, and actually it ends on the same pattern.

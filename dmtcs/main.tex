@@ -257,16 +257,18 @@ Let $G = (V,E,s,t)$ be a directed graph. Two vertices $v, w \in V_{G}$ are {\emp
 The subgraph $G_{\mid C(v)}$ is the {\emph{strongly connected component}} of $G$ containing $v$. If $G$ is finite, then it has a finite number of strongly connected components. 
 
 \begin{definition}
-The {\emph{condensation graph}} Cond$(G)$ of $G$ is the directed graph determined by $$V_{\rm{Cond}(G)} = V/\!\! \sim_{V},  \ \ \ E_{\rm{Cond}(G)} = E - \{ e \in E \ | \ s(e) \sim_{V} t(e) \}$$
-$$ s|_{\rm{Cond}(G)}(e) = [s(e)], \ \ \ t|_{\rm{Cond}(G)}(e) = [t(e)].$$
+The {\emph{unreduced condensation graph}} $C^{\circlearrowleft}(G)$ of $G$ is the directed graph defined by
+$$ V_{C^{\circlearrowleft}(G)} = V/\!\! \sim_{V}, \ \ \ E_{C^{\circlearrowleft}(G)} = E, \ \ \ s_{C^{\circlearrowleft}(G)}(e) = [s(e)], \ t_{C^{\circlearrowleft}(G)}(e) = [t(e)].$$
+The {\emph{condensation graph}} $C(G)$ of $G$ is the directed graph defined by $$V_{C(G)} = V_{C^{\circlearrowleft}(G)}  \ \ \ E_{C(G)} = E - \{ e \in E \ | \ s(e) \sim_{V} t(e) \},$$  
+$$s_{C(G)}(e) = [s(e)], \ t_{C(G)}(e) = [t(e)].$$
 \end{definition} 
 \noindent Informally speaking, the {\emph{condensation}} graph $C(G)$ is the result of contracting each strongly connected component to a vertex, removing every self-loop. To give a precise meaning to this statement, we recall the {\emph{excision}} operation, Exc: it consists in removing all self-loops of a graph (see \cite[Def.~1]{BD22}).
 
-\begin{lemma}
-Let $\sim_{E}$ be the equivalence relation defined on $E$ by $e \sim_{E} f$ if $s(e) \sim_{V} t(e)$ and let $C^{\circlearrowleft}(G) = (V',E')$ be the directed graph defined by $V' = V/\!\!\sim_{V}$, $E' = E/\!\!\sim_{E}$. Then $C(G) = {\rm{Exc}}(C^{\circlearrowleft}(G))$.
+\begin{lemma} $C(G) = {\rm{Exc}}(C^{\circlearrowleft}(G))$.
 \end{lemma}
 
-There is a partial order on the vertices of $C(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. Hence Cond$(G)$ is a directed acyclic graph.  It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
+There is a partial order on the vertices of $C(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. Hence 
+$C(G)$ is a directed acyclic graph.  It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
 
 \begin{example} \label{example:three_scc}
 The directed graph below has three strongly connected components.

@@ -141,20 +141,51 @@ In this paper, we use this result to study further the genus of a regular langua
 
 \section{Directed emulators}
 
-We assume from the reader a working knowledge on directed graphs and automata theory (see for instance \cite{Sak03}).
-In this paragraph we review the notion of directed emulators and state the main result we use in this paper. For more details on directed emulators, we refer to \cite[\S~4]{BD22}.
+We assume from the reader a working knowledge on directed graphs and automata theory (see for instance \cite{Sak03}). Here we review the notion of directed emulators and state the main results from we use in this paper. For more details, we refer to \cite[\S~4]{BD22}.
 
 \begin{definition}
-Let $G$ be a digraph. We say that a digraph $G'$ is a {\emph{directed emulator}} of $G$ if there is a directed graph morphism $(p, q): G' \to G$ such that $p$ is surjective and for any edge $e \in E_{G}$ and any $x \in p^{-1}(s_{G}(e))$, there is an edge $e' \in E_{G'}$ such that $s_{G'}(e') = x$ and $q(e') = e$. Such a pair $(p,q)$ is called a {\emph{directed emulator morphism}}.
+Let $G$ be a digraph. We say that a digraph $G'$ is a {\emph{directed emulator}} of $G$ if there is a directed graph morphism $(p, q): G' \to G$ such that $p$ is surjective and for any edge $e \in E_{G}$ and any $x \in p^{-1}(s_{G}(e))$, there is an edge $e' \in E_{G'}$ such that $s_{G'}(e') = x$ and $q(e') = e$. Such a pair $(p,q)$ is called a {\emph{directed emulator morphism}}. The set of directed emulators of $G$ is denoted ${\rm{em}}(G)$.
 \end{definition}
+
+Recall the definition of a graph $G$: it is the minimal genus $g(G)$ among all genera of (closed oriented) surfaces into which the graph $G$ embeds. 
+
+\begin{definition}
+Let $G$ be a directed graph. The {\emph{directed emulation genus}} of $G$ is $g_{\rm{em}}(G) = {\min}\ \{ g(H) \ | \ H \in {\rm{em}}(G) \}$.
+\end{definition}
+
+\begin{lemma}
+ $g_{\rm{em}}(G) \leq g(G)$.
+\end{lemma}
+
+\begin{proof}
+The identity map is a directed emulator morphism,
+\end{proof}
+
+Any automaton $\A$ gives rise to a directed graph ${\rm{G}}_{\A}$ by forgetting the extra structure (labels and distinguished initial and final states) on $\A$. We shall write $L(\A)$ for the language recognized by $\A$.
+
+\begin{definition}
+Let $L$ be a regular language. The {\emph{genus of the language}} $L$ is $$ g(L) = {\min}\ \{ g({\rm{G}}(\A)) \ | \ L(\A) = L, \ \A\ {\rm{deterministic}} \}.$$
+\end{definition}
+
+The following result is a direct consequence of the definition. 
+
+\begin{lemma} \label{lem:basic_ineq_language_genus}
+Let $\A_{\rm{min}}(L)$ be the minimal deterministic automaton recognizing $L$ and let $G(L) = {\rm{G}}_{\A_{\rm{min}}(L)}$. Then $g(L) \leq g(\A_{\rm{min}}(L))$.
+\end{lemma}
+
+\begin{remark}
+Numerous examples of languages exist for which the inequality of Lemma~\ref{lem:basic_ineq_language_genus} is strict. 
+\end{remark}
 
 The key observation in \cite{BD22} is that the canonical automaton map between a finite deterministic automaton recognizing a language $L$ and its minimal automaton is, at the level of the underlying directed graphs, a directed emulator morphism. This observation leads to the following result.
 
 \begin{theorem}[\cite{BD22}] \label{th:fund}
-A regular language $L$ has genus less or equal to $g$ if and only if its minimal automaton has a directed emulator of genus less of equal to $g$.
+A regular language $L$ has genus less or equal to $g$ if and only if its minimal automaton has a directed emulator of genus less or equal to $g$. In particular, $g(L) = g_{\rm{em}}(G(L))$.
 \end{theorem}
 
-There is also a notion of emulator for undirected graphs.
+
+
+There is also a notion of emulator for undirected graphs. Reall that there is a forgetful functor  $U$ from the category of directed graphs to the category of undirected graphs. It follows from definitions that $g(G) = g(U(G))$.
 
 \begin{definition}
 Let $G$ be an undirected graph. We say that an undirected graph
@@ -262,10 +293,17 @@ $$ V_{C^{\circlearrowleft}(G)} = V/\!\! \sim_{V}, \ \ \ E_{C^{\circlearrowleft}(
 The {\emph{condensation graph}} $C(G)$ of $G$ is the directed graph defined by $$V_{C(G)} = V_{C^{\circlearrowleft}(G)}  \ \ \ E_{C(G)} = E - \{ e \in E \ | \ s(e) \sim_{V} t(e) \},$$  
 $$s_{C(G)}(e) = [s(e)], \ t_{C(G)}(e) = [t(e)].$$
 \end{definition} 
+
+
+
 \noindent Informally speaking, the {\emph{condensation}} graph $C(G)$ is the result of contracting each strongly connected component to a vertex, removing every self-loop. To give a precise meaning to this statement, we recall the {\emph{excision}} operation, Exc: it consists in removing all self-loops of a graph (see \cite[Def.~1]{BD22}).
 
-\begin{lemma} $C(G) = {\rm{Exc}}(C^{\circlearrowleft}(G))$.
+\begin{lemma} $C(G) = {\rm{Exc}}(C^{\circlearrowleft}(G))$. In particular, $g_{\rm{em}}(C(G)) = g_{\rm{em}}(C^{\circlearrowleft}(G))$.
 \end{lemma}
+
+\begin{proof}
+The first statement follows from the definition. The second statement follows from \cite[Th.~5]{BD22}. 
+\end{proof}
 
 There is a partial order on the vertices of $C(G)$ defined by $u \leq v$ if there is a directed path from $u$ to $v$. Hence 
 $C(G)$ is a directed acyclic graph.  It follows from definitions that two maximal elements cannot be adjacent and that removing a maximal element and its incoming edges yields another directed acyclic graph.
@@ -315,16 +353,44 @@ The condensation graph is
 We have $C_1 \leq C_2 \leq C_3$ and $C_{3}$ is a maximal vertex of the condensation graph.
 \end{example}
 
-
-\begin{lemma}
-A directed emulator morphism $G \to H$ induces a directed emulator morphism $C(G) \to C(H)$.
-\end{lemma}
-
+\begin{prop} \label{prop:unreduced_condensation}
+A graph morphism $G \to H$ induces a commutative diagram of graph morphisms
+$$
+\xymatrix{ G \ar[rr]^-{({\rm{pr}}_{G}, 1_{E_{G}})} \ar[d]_-{(p,q)} && C^{\circlearrowleft}(G) \ar[d]^{([p],q)} \\ 
+H \ar[rr]^-{({\rm{pr}}_{H}, 1_{E_{H}})} && C^{\circlearrowleft}(H) 
+}
+$$
+Furthermore, if $G \to H$ is a directed emulator morphism then so is the induced map $C^{\circlearrowleft}(G) \to C^{\circlearrowleft}(H)$.
+\end{prop}
 \begin{proof}
-A graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{C(G)} \to V_{C(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
-Define $q': E_{C(G)} \to E_{C(H)}$ by restricting $q$ to $E_{G} - \{ e \in E_{G} \ | \ s(e) \sim_{V_{G}} t(e) \}$. 
-Since $(p,q)$ is a graph morphism, $$[p](s_{C(G)}(e)) = [p]([s(e)]) = [p(s(e))] = [s(q(e))] = s_{C(H)}(q'(e))$$ and similarly $[q](t_{C(G)}(e)) = t_{C(H)}(q'(e))$, so $([p],q'): C(G) \to C(H)$ is a graph morphism. 
-Suppose that we started from a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q')$. Let $[v] \in C(H)$ and let $e \in E_{C(H)}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $C(v)$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$ and $q'(e') = q(e') = e$. Hence $([p],q')$ is a directed emulator morphism.
+First, define the natural map from a directed graph $G$ to its unreduced condensation graph as follows: send a vertex $v$ to its class $[v] = C(v)$ and let it be the identity on the edges. Then 
+$$ {\rm{pr}}_{G} \circ s(e) = [s(e)] = s_{C^{\circlearrowleft}(G)}(e) = s_{C^{\circlearrowleft}(G)} \circ {1}_{E}(e)$$ and similarly ${\rm{pr}} \circ t(e) = t_{C^{\circlearrowleft}(G)} \circ 1_{E}(e)$. So $({\rm{pr}}_{G}, 1_{E_{G}})$ is a graph morphism. 
+
+Next, a graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{C(G)} \to V_{C(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
+
+Finally, this property ensures the commutativity of the diagram:
+$$ ([p],q) \circ ({\rm{pr}}_{G}, 1_{E_{G}}) = ([p] \circ {\rm{pr}}_{G}, q) = ({\rm{pr}}_{H} \circ p, q) = ({\rm{pr}}_{H}, 1_{E_{H}}) \circ (p,q).$$
+
+Let us prove the last statement of the proposition. Suppose that we started with a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q)$. Let $[v] \in C^{\circlearrowleft}(H)$ and let $e \in E_{C^{\circlearrowleft}(H)} = E_{H}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $[v]$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$. Hence $([p],q)$ is a directed emulator morphism.
+\end{proof}
+
+\begin{remark} \label{rem:canonical_map_to_unreduced_condensation}
+The canonical map $G \to C^{\circlearrowleft}(G)$ is itself a directed graph emulator morphism. 
+\end{remark}
+
+\begin{prop} \label{prop:reduced_condensation}
+A directed emulator morphism $G \to H$ induces a directed emulator morphism $C(G) \to C(H)$.
+\end{prop}
+
+\begin{remark}
+In contrast to Prop.~\ref{prop:unreduced_condensation}, there is no natural map $G \to C(G)$. 
+\end{remark}
+
+\begin{proof}[Proof of Prop.~\ref{}]
+By the argument above, there is an induced map $[p]: V_{C(G)} \to V_{C(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
+Define $q': E_{C(G)} \to E_{H}$ by restricting $q$ to $E_{G} - \{ e \in E_{G} \ | \ s(e) \sim_{V_{G}} t(e) \}$. 
+Since $(p,q)$ is a graph morphism, $q$ sends $\{ e \in E_{G} \ | \ s(e) \sim_{V_{G}} t(e) \}$ to $\{ e \in E_{H} \ | \ s(e) \sim_{V_{H}} t(e) \}$ so $q'$ is a map $E_{C(G)} \to E_{C(H)}$. Moreover, $$[p](s_{C(G)}(e)) = [p]([s(e)]) = [p(s(e))] = [s(q(e))] = s_{C(H)}(q'(e))$$ and similarly $[q](t_{C(G)}(e)) = t_{C(H)}(q'(e))$. Hence $([p],q'): C(G) \to C(H)$ is a graph morphism. 
+Suppose that we started with a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q')$. Let $[v] \in C(H)$ and let $e \in E_{C(H)}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $C(v)$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$ and $q'(e') = q(e') = e$. Hence $([p],q')$ is a directed emulator morphism.
 \end{proof}
 
 
@@ -495,7 +561,7 @@ A directed graph has a planar directed emulator if and only if each of its stron
 
 
 
-\begin{proof}
+\begin{proof}[Proof of Theorem~\ref{th:planar_iff_scc_planar}]
 Suppose $G' \to G$ is a directed emulator morphism, with $G'$ planar. The restriction to the preimage $C'$ of a strongly connected component (henceforth shortened to scc) $C$ is again a directed emulator morphism $C' \to C$. Since $C' \subseteq G'$ and $G'$ is planar, so is $G''$. Consider the converse. Suppose that each ssc of a directed graph $G$  has a planar directed emulator. We have to prove that $G$ has a planar directed emulator. Let $H$ be the condensation graph of $G$.
 Since $H$ is a directed acyclic graph, $H$ has a simple directed emulator $H'$ that is a tree (by Theorem~\ref{th:dag_has_simple_tree_as_directed_emulator}) which is again acyclic. Consider the directed emulator morphism $(p,q):H' \to H$ built by successive splitting of maximal elements as in the proof of Theorem~\ref{th:dag_has_simple_tree_as_directed_emulator}. Maximal vertices of $H'$ are sent to maximal vertices of $H$ by the corresponding directed emulator morphism $(p,q):H' \to H$. We build a new directed graph out of $H'$ as follows. Recall that each vertex $v \in H$ stands for a scc $C_{v}$ of $G$ and that each edge $\arete{v}{e}{w} \in E_{H}$
 stands for an edge $\arete{\tilde{v}}{\tilde{e}}{\tilde{w}} \in E_{G}$
@@ -578,17 +644,39 @@ We shall now prove that Theorem~\ref{th:planar_iff_scc_planar} does not generali
 refinement of the star height taking into account only topologicaly nontrivial cycles), see \cite{FD17}.
 \end{remark}
 
+Denote by $G(L)$ the underlying directed graph of the minimal deterministic automaton $\A$ recognizing $L$.
+
 \begin{corollary} \label{cor:language_planar_iff_det_has_planar_scc}
-A regular language is planar if and only if it is recognized by a deterministic automaton $\A$ such that the underlying directed graph ${\rm{G}}_{\A}$ has planar strongly connected components.
+A regular language $L$ is planar if and only if  every strongly connected component of $G(L)$ has a planar directed emulator.
 \end{corollary}
+
+This result was proved by Denis Kuperberg in \cite[Th.~21]{Kuperberg}.
 
 \begin{proof}
 Follows from Theorem~\ref{th:fund} and Theorem~\ref{th:planar_iff_scc_planar}.
 \end{proof}
 
-A key observation is that Theorem~\ref{th:planar_iff_scc_planar} and Corollary~\ref{cor:language_planar_iff_det_has_planar_scc} do not generalize to a result analogous to that of Lemma~\ref{lem:min_genus_emulator_is_additive_on_blocks} for higher genus.
+It is well known that the genus of a graph is additive on blocks \cite{Ad62}. In view of Theorem~\ref{th:planar_iff_scc_planar} and Corollary~\ref{cor:language_planar_iff_det_has_planar_scc}, it might be natural to believe that the genus of a language $L$ can be computed as the sum of the minimal genera of the directed emulators of the strongly connected components of $G(L)$. A key result is that a formula of this kind does not hold in higher genus.
+
+\begin{theorem}
+There exists a directed graph $G$ such that 
+$g_{\rm{em}}(G) > \sum_{i} g_{\rm{em}}(G_i)$
+where $G_1, \ldots, G_n$ are the strongly connected components of $G$.
+\end{theorem}
+
+\begin{proof}
+Let $G$ be a digraph such that $C(G)$ has genus $g_{\rm{em}}(C(G)) \geq 1$ and such that each strongly connected component $G_i$ has genus $g_{\rm{em}}(G_i) \geq 1$, $i = 1, \ldots, n$. Since $g_{\rm{em}}(C(G)) \geq 1$, there is a directed cycle $c$ in $C(G)$ such that $[c] \not= 0$ in $H_{1}(S)$ for any embedding of (the subgraph) $c$ in any surface $S$. Suppose now that $p:H \to G$ is a directed emulator of $G$ such that $g(H) = g_{\rm{em}}(G)$. Consider any embedding of $H$ into a surface $\Sigma$ of genus $g(\Sigma) = g(H)$ witnessing the minimality of the genus. According to Prop.~\ref{prop:unreduced_condensation}, there is a commutative diagram
+$$ \xymatrix{ H \ar[rr]^-{({\rm{pr}}_{H}, 1_{E_{H}})} \ar[d]_-{(p,q)} && C^{\circlearrowleft}(H) \ar[d]^{([p],q)} \\ 
+G \ar[rr]^-{({\rm{pr}}_{G}, 1_{E_{G}})} && C^{\circlearrowleft}(G) 
+}$$
+Using the canonical inclusion graph morphism $C(G) \subseteq C^{\circlearrowleft}(G)$, we may regard the cycle $c$ as sitting inside $C^{\circlearrowleft}(G)$.  Let $\tilde{c}$ be a minimal (with respect to length) directed cycle in $C^{\circlearrowleft}(H)$ whose image in $C^{\circlearrowleft}(G)$ is $c$. Consider the two cases:
+
+\noindent (1) $[\tilde{c}] = 0$ in $H_{1}(\Sigma)$. Since by hypothesis $[c] \not= 0$ in $H_{1}(\Sigma)$, $\tilde{c}$ is not isomorphic to $c$ (as a directed graph). Therefore (lemma), the length of $\tilde{c}$ is strictly greater (a multiple) than the length of $c$. But then $\tilde{c}$ has more vertices than $c$, so $C^{\circlearrowleft}(H)$ has more vertices than $C^{\circlearrowleft}(G)$. Therefore $H$ has at least one extra strongly component $\tilde{G}_{i}$ that lies over $G_{i}$. Hence $g(G) \geq \sum_{j \not= i} g_{\rm{em}}(G_j) + 2g_{\rm{em}}(G_i) > \sum_{i} g_{\rm{em}}(G_{j})$.\\
+
+\noindent (2) $[\tilde{c}] \not= 0$ in $H_{1}(\Sigma)$. Since $ ({\rm{pr}}_{H}, 1_{E}): H \to C^{\circlearrowleft}(H)$ is onto, there exists $\beta \subset H$ that is sent onto $\tilde{c}$. Since $g(H) = g_{\rm{em}}(G) \geq \sum_{i} g_{\rm{em}}(G_i)$, $H$ supports a family $\{ \alpha_{k} \}_{k}$ of $2\sum_{i} g_{\rm{em}}(G_{i})$ of cycles that $\{ [\alpha_{k}] \}_{k}$ is a family of ${\mathbb{Z}}$-independent homology classes in $H_{1}(\Sigma)$. Suppose that a relation $[\beta] = \sum_{k} \lambda_{k} [\alpha_{k}]$ holds.
 
 
+\end{proof}
 
 
 

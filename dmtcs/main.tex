@@ -353,6 +353,40 @@ The condensation graph is
 We have $C_1 \leq C_2 \leq C_3$ and $C_{3}$ is a maximal vertex of the condensation graph.
 \end{example}
 
+\begin{lemma} \label{rem:canonical_map_to_unreduced_condensation}
+The canonical map $G \to C^{\circlearrowleft}(G)$ is itself a directed graph epimorphism. It is not a directed emulator graph in general.
+\end{lemma}
+
+\begin{proof}
+The natural map from a directed graph $G$ to its unreduced condensation graph is defined as follows: send a vertex $v$ to its class $[v] = C(v)$ and let it be the identity on the edges. Then 
+$$ {\rm{pr}}_{G} \circ s(e) = [s(e)] = s_{C^{\circlearrowleft}(G)}(e) = s_{C^{\circlearrowleft}(G)} \circ {1}_{E}(e)$$ and similarly ${\rm{pr}} \circ t(e) = t_{C^{\circlearrowleft}(G)} \circ 1_{E}(e)$. So $({\rm{pr}}_{G}, 1_{E_{G}})$ is a graph morphism. It follows from the definition that it is an epimorphism.  To see why it is not a directed emulator graph in general, consider the following directed graph $G$ together with its canonical epimorphism onto $C^{\circlearrowleft}$ (dash dot denotes strongly components):
+\begin{center}
+\begin{tikzpicture}[->,transform shape,scale=0.5, baseline=-2mm]
+\node[etat](G0) at (0,3.5){$v_1$};
+\node[etat] (G1) at (0,2.5) {$v_2$};
+\node[etat] (G2) at (3,3) {};
+\node[etat] (F0) at (0,-3) {$[v_1]$};
+\node[etat] (F1) at (3,-3) {};
+\path (G0) edge [bend left] node [] {} (G1);
+\path (G1) edge [bend left] node [] {} (G0);
+\path (G0) edge [bend left] node [above] {\LARGE $e_1$} (G2);
+\path (G1) edge [bend right] node [above] {\LARGE $e_2$} (G2);
+\path (F0) edge [bend left] node [above]{\LARGE $e_1$} (F1);
+\path (F0) edge [bend right] node [below]{\LARGE $e_{2}$} (F1);
+\path (F0) edge [loop above] node [] {} (F0);
+\path (F0) edge [loop below] node [] {} (F0);
+\path[->] (1.5,1.5) edge [] node [] {} (1.5,-1.5);
+\draw[red, dash dot] (0,3) circle[radius=1.1];
+\draw[red, dash dot] (0,-3) circle[radius=1.2];
+\draw[red, dash dot] (3,-3) circle[radius=0.8];
+\draw[red, dash dot] (3,3) circle[radius=0.8];
+\end{tikzpicture}
+\end{center}
+There is no lift of the edge $e_{2}$ starting at $v_1$.
+\end{proof}
+
+
+
 \begin{prop} \label{prop:unreduced_condensation}
 A graph morphism $G \to H$ induces a commutative diagram of graph morphisms
 $$
@@ -363,10 +397,7 @@ $$
 Furthermore, if $G \to H$ is a directed emulator morphism then so is the induced map $C^{\circlearrowleft}(G) \to C^{\circlearrowleft}(H)$.
 \end{prop}
 \begin{proof}
-First, define the natural map from a directed graph $G$ to its unreduced condensation graph as follows: send a vertex $v$ to its class $[v] = C(v)$ and let it be the identity on the edges. Then 
-$$ {\rm{pr}}_{G} \circ s(e) = [s(e)] = s_{C^{\circlearrowleft}(G)}(e) = s_{C^{\circlearrowleft}(G)} \circ {1}_{E}(e)$$ and similarly ${\rm{pr}} \circ t(e) = t_{C^{\circlearrowleft}(G)} \circ 1_{E}(e)$. So $({\rm{pr}}_{G}, 1_{E_{G}})$ is a graph morphism. 
-
-Next, a graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{C(G)} \to V_{C(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
+A graph morphism $(p:V_{G} \to V_{H}, q:E_{G} \to E_{H})$ preserves strong connectedness, so there is an induced map $[p]: V_{C(G)} \to V_{C(H)}$ defined by $[p]([v]) = [p(v)]$ for any $[v] \in V_{G}/\!\!\sim_{V}$. 
 
 Finally, this property ensures the commutativity of the diagram:
 $$ ([p],q) \circ ({\rm{pr}}_{G}, 1_{E_{G}}) = ([p] \circ {\rm{pr}}_{G}, q) = ({\rm{pr}}_{H} \circ p, q) = ({\rm{pr}}_{H}, 1_{E_{H}}) \circ (p,q).$$
@@ -374,9 +405,7 @@ $$ ([p],q) \circ ({\rm{pr}}_{G}, 1_{E_{G}}) = ([p] \circ {\rm{pr}}_{G}, q) = ({\
 Let us prove the last statement of the proposition. Suppose that we started with a directed emulator morphism. Since $(p,q)$ is onto, so is $([p],q)$. Let $[v] \in C^{\circlearrowleft}(H)$ and let $e \in E_{C^{\circlearrowleft}(H)} = E_{H}$. Choose a representative $v \in V_{H}$, that is a vertex inside the strongly connected component $[v]$. By the lifting property for the directed emulator $(p,q): G \to H$, there is an edge $e' \in E_G$ such that $p(s(e')) = v$ and $q(e') = e$. But then $[p]([s(e')]) = [p(s(e')] = [v]$. Hence $([p],q)$ is a directed emulator morphism.
 \end{proof}
 
-\begin{remark} \label{rem:canonical_map_to_unreduced_condensation}
-The canonical map $G \to C^{\circlearrowleft}(G)$ is itself a directed graph emulator morphism. 
-\end{remark}
+
 
 \begin{prop} \label{prop:reduced_condensation}
 A directed emulator morphism $G \to H$ induces a directed emulator morphism $C(G) \to C(H)$.
@@ -673,7 +702,7 @@ Using the canonical inclusion graph morphism $C(G) \subseteq C^{\circlearrowleft
 
 \noindent (1) $[\tilde{c}] = 0$ in $H_{1}(\Sigma)$. Since by hypothesis $[c] \not= 0$ in $H_{1}(\Sigma)$, $\tilde{c}$ is not isomorphic to $c$ (as a directed graph). Therefore (lemma), the length of $\tilde{c}$ is strictly greater (a multiple) than the length of $c$. But then $\tilde{c}$ has more vertices than $c$, so $C^{\circlearrowleft}(H)$ has more vertices than $C^{\circlearrowleft}(G)$. Therefore $H$ has at least one extra strongly component $\tilde{G}_{i}$ that lies over $G_{i}$. Hence $g(G) \geq \sum_{j \not= i} g_{\rm{em}}(G_j) + 2g_{\rm{em}}(G_i) > \sum_{i} g_{\rm{em}}(G_{j})$.\\
 
-\noindent (2) $[\tilde{c}] \not= 0$ in $H_{1}(\Sigma)$. Since $ ({\rm{pr}}_{H}, 1_{E}): H \to C^{\circlearrowleft}(H)$ is onto, there exists $\beta \subset H$ that is sent onto $\tilde{c}$. Since $g(H) = g_{\rm{em}}(G) \geq \sum_{i} g_{\rm{em}}(G_i)$, $H$ supports a family $\{ \alpha_{k} \}_{k}$ of $2\sum_{i} g_{\rm{em}}(G_{i})$ of cycles that $\{ [\alpha_{k}] \}_{k}$ is a family of ${\mathbb{Z}}$-independent homology classes in $H_{1}(\Sigma)$. Suppose that a relation $[\beta] = \sum_{k} \lambda_{k} [\alpha_{k}]$ holds.
+\noindent (2) $[\tilde{c}] \not= 0$ in $H_{1}(\Sigma)$. Since $ ({\rm{pr}}_{H}, 1_{E}): H \to C^{\circlearrowleft}(H)$ is onto, there exists $\beta \subset H$ that is sent onto $\tilde{c}$. Since $g(H) = g_{\rm{em}}(G) \geq \sum_{i} g_{\rm{em}}(G_i)$, $H$ supports a family $\{ \alpha_{k} \}_{k}$ of $2\sum_{i} g_{\rm{em}}(G_{i})$ of cycles that $\{ [\alpha_{k}] \}_{k}$ is a family of ${\mathbb{Z}}$-independent homology classes in $H_{1}(\Sigma)$. Suppose that a relation $[\beta] = \sum_{k} \lambda_{k} [\alpha_{k}]$ holds. This implies that there exists some (multi)cycle homologous to $\beta$ that is supported in 
 
 
 \end{proof}

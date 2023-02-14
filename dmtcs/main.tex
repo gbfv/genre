@@ -161,6 +161,16 @@ Let $G$ be a directed graph. The {\emph{directed emulation genus}} of $G$ is $g_
 The identity map is a directed emulator morphism,
 \end{proof}
 
+We shall need the following observation.
+
+\begin{lemma} \label{lem:cond_for_graph_iso}
+If a directed emulator graph $H \to G$ restricts to an injection $V_{H} \to V_{G}$ on the set of vertices and $H$ is simple, then  it is a graph isomorphism.
+\end{lemma}
+
+\begin{proof}
+Since a directed emulator graph is an epimorphism, the induced map $V_{H} \to V_{G}$ is bijective. Thus the lift of a directed edge is unique.
+\end{proof}
+
 Any automaton $\A$ gives rise to a directed graph ${\rm{G}}_{\A}$ by forgetting the extra structure (labels and distinguished initial and final states) on $\A$. We shall write $L(\A)$ for the language recognized by $\A$.
 
 \begin{definition}
@@ -278,6 +288,7 @@ Let $G$ be a  graph with connected components $G_{i}, i \in I$. Suppose that $G_
 \label{cor:planar_emulator_from_components}
 A graph has a planar emulator if and only if each of its biconnected components has a planar emulator.
 \end{corollary}
+
 
 
 
@@ -694,16 +705,67 @@ where $G_1, \ldots, G_n$ are the strongly connected components of $G$.
 \end{theorem}
 
 \begin{proof}
-Let $G$ be a digraph such that $C(G)$ has genus $g_{\rm{em}}(C(G)) \geq 1$ and such that each strongly connected component $G_i$ has genus $g_{\rm{em}}(G_i) \geq 1$, $i = 1, \ldots, n$. Since $g_{\rm{em}}(C(G)) \geq 1$, there is a directed cycle $c$ in $C(G)$ such that $[c] \not= 0$ in $H_{1}(S)$ for any embedding of (the subgraph) $c$ in any surface $S$. Suppose now that $p:H \to G$ is a directed emulator of $G$ such that $g(H) = g_{\rm{em}}(G)$. Consider any embedding of $H$ into a surface $\Sigma$ of genus $g(\Sigma) = g(H)$ witnessing the minimality of the genus. According to Prop.~\ref{prop:unreduced_condensation}, there is a commutative diagram
-$$ \xymatrix{ H \ar[rr]^-{({\rm{pr}}_{H}, 1_{E_{H}})} \ar[d]_-{(p,q)} && C^{\circlearrowleft}(H) \ar[d]^{([p],q)} \\ 
-G \ar[rr]^-{({\rm{pr}}_{G}, 1_{E_{G}})} && C^{\circlearrowleft}(G) 
-}$$
-Using the canonical inclusion graph morphism $C(G) \subseteq C^{\circlearrowleft}(G)$, we may regard the cycle $c$ as sitting inside $C^{\circlearrowleft}(G)$.  Let $\tilde{c}$ be a minimal (with respect to length) directed cycle in $C^{\circlearrowleft}(H)$ whose image in $C^{\circlearrowleft}(G)$ is $c$. Consider the two cases:
+We shall consider a digraph $G$ with the following properties:
+\begin{enumerate}
+\item[(1)] $G$ has $n > 1$ strongly connected components $G_{1}, \ldots, G_{n}$ such that $g_{\rm{em}}(G_{i}) = g_{i} \geq 1$ for $i = 1, \ldots, n$.
+%\item[(2)] There is one and only one directed edge from one vertex of $G_{1}$ to one vertex of $G_{1}$ and no other edge between $G_{0}$ and the other strongly connected components $G_{2}, \ldots, G_{n}$.
+\item[(2)] The condensation graph $C(G)$ has genus $g_{\rm{em}}(C(G)) \geq 1$.
+\end{enumerate} 
+%\begin{figure}
+%\begin{center}
+%\includegraphics[scale=0.5]{graph_with_components.pdf}
+%\end{center}
+%\caption{A schematic representation of the digraph $G$. Each box represents a directed subgraph. The subgraph $G_{2\ldots n}$ is the maximal directed subgraph of $G$ such that $V_{G_{2\ldots n}} = \{ G_2, \ldots, G_n \}$.}
+%\end{figure} 
+%Let $G_{1 \ldots n}$ be the directed subgraph of $G$ whose set of vertices is $\{G_1, \ldots, G_n\}$. It follows from the hypotheses that $g_{\rm{em}}(G_{1\ldots n}) = g_{\rm{em}}(C(G)) \geq 1$. Therefore there is a directed cycle $c$ -- which we may view as a subgraph -- in some new direction\footnote{See \cite[\S 4.3]{BD23} for the exact definition of the direction of an undirected graph.} for $U(C(G))$, supported by the vertices $G_1, \ldots, G_n$ only, such that $g_{\rm{em}}(c) = g_{\rm{em}}(C(G))$. This implies that the $1$-homology class
+%$[c]$ in $H_{1}(S)$ is nonzero for any embedding of (the subgraph) $c$ in any surface $S$. 
+Suppose that $p:H \to G$ is a directed emulator of $G$ such that $g(H) = g_{\rm{em}}(G)$.  According to Prop.~\ref{prop:reduced_condensation}, there is a directed emulator morphism $C(p): C(H) \to C(G)$. Consider the following two cases: 
 
-\noindent (1) $[\tilde{c}] = 0$ in $H_{1}(\Sigma)$. Since by hypothesis $[c] \not= 0$ in $H_{1}(\Sigma)$, $\tilde{c}$ is not isomorphic to $c$ (as a directed graph). Therefore (lemma), the length of $\tilde{c}$ is strictly greater (a multiple) than the length of $c$. But then $\tilde{c}$ has more vertices than $c$, so $C^{\circlearrowleft}(H)$ has more vertices than $C^{\circlearrowleft}(G)$. Therefore $H$ has at least one extra strongly component $\tilde{G}_{i}$ that lies over $G_{i}$. Hence $g(G) \geq \sum_{j \not= i} g_{\rm{em}}(G_j) + 2g_{\rm{em}}(G_i) > \sum_{i} g_{\rm{em}}(G_{j})$.\\
+\noindent (1) The induced map $V_{C(H)} \to V_{C(G)}$ is not bijective. Since it is surjective, $C(H)$ has strictly more vertices than $C(G)$. Thus $H$ has at least one extra strongly connected component $\tilde{G}_{i_{0}}$ lying over some strongly connected component $G_{i_{0}}$. Hence $$g(G) = g(H) \geq \sum_{j \not= i_{0}} g_{\rm{em}}(G_j) + 2g_{\rm{em}}(G_{i_{0}}) > \sum_{j} g_{\rm{em}}(G_{j}).$$\\
 
-\noindent (2) $[\tilde{c}] \not= 0$ in $H_{1}(\Sigma)$. Since $ ({\rm{pr}}_{H}, 1_{E}): H \to C^{\circlearrowleft}(H)$ is onto, there exists $\beta \subset H$ that is sent onto $\tilde{c}$. Since $g(H) = g_{\rm{em}}(G) \geq \sum_{i} g_{\rm{em}}(G_i)$, $H$ supports a family $\{ \alpha_{k} \}_{k}$ of $2\sum_{i} g_{\rm{em}}(G_{i})$ of cycles that $\{ [\alpha_{k}] \}_{k}$ is a family of ${\mathbb{Z}}$-independent homology classes in $H_{1}(\Sigma)$. Suppose that a relation $[\beta] = \sum_{k} \lambda_{k} [\alpha_{k}]$ holds. This implies that there exists some (multi)cycle homologous to $\beta$ that is supported in 
+\noindent (2) The induced map $V_{C(H)} \to V_{C(G)}$ is bijective. Lemma~\ref{lem:cond_for_graph_iso} then implies that the original directed emulator morphism $C(H) \to C(G)$ is a graph isomorphism. In particular, the strongly connected components $\tilde{G}_{1}, \ldots, \tilde{G}_{n}$ of $H$ are in bijective correspondence with the strongly connected components $G_1, \ldots, G_n$ of $G$. Consider an embedding of $H$ into a surface $\Sigma$ of genus $g(\Sigma) = g(H) = g_{\rm{em}}(G)$ witnessing the minimality of the genus. By assumption, each strongly connected component $\tilde{G}_{i}$ lies in a subsurface $\Sigma_{i}$ of genus $g_{i} \geq 1$ inside $\Sigma$.
+Furthermore, up to isotopy of $H$ in $\Sigma$, the subsurfaces can be chosen as to satisfy the following conditions:
+\begin{enumerate}
+\item[(1)] The full subgraph $\tilde{G_{i}}$ lies in the interior of $\Sigma_{i}$ for $i=1, \ldots, n$. Furthermore, a vertex $v \in V_{H}$ lies in $\Sigma_i$ if and only if $v \in G_{i}$, for $i = 1, \ldots, n$.
+\item[(2)] $\Sigma_{i} \cap \Sigma_{j} = \varnothing$ if $i \not= j$.
+\item[(3)] $\Sigma_{i}$ is the complement of a disc $D_{i}$ in a closed surface of genus $g_{i}$, for $i = 1, \ldots, n$. In particular, the boundary $\partial \Sigma_{i}$ of $\Sigma_i$ is a disc $C_{i} = \partial D_{i}$.
+\end{enumerate}
+The conditions imply that $\partial \Sigma_{i} \cap H$ consists of a finite number of points that belong to edges between vertices of $G_{i}$ and some other vertices in $G_{j}$ ($j \not= i$), for $i = 1, \ldots, n$.
 
+On the one hand, each strongly connected component $\tilde{G}_{i}$ in $H$ has genus $g_{i}$ and therefore supports $2g_{i}$ directed cycles which induce independent $1$-homology classes in $H_{1}(\Sigma_{i})$. It follows that $H$ supports a family $\{ \alpha_{i} \}_{i}$ of $2\sum_{i} g_{\rm{em}}(G_{i})$ directed cycles that induce ${\mathbb{Z}}$-independent homology classes in $H_{1}(\Sigma)$. On the other hand, $C(G)$ has genus $g_{\rm{em}}(C(G)) \geq 1$, so there exists a directed cycle $c$ in $U(C(G)) = U(C(H))$ (regarded as a directed subgraph of ${U(C(H))}$ for some new choices of direction of edges) such that $g_{\rm{em}}(c) \geq 1$. It follows that the $1$-homology class $[c]$ is nonzero in $H_{1}(S)$ for any embedding of $c$ in any surface $S$. Since $ ({\rm{pr}}_{H}, 1_{E}): H \to C^{\circlearrowleft}(H)$ is onto, there exists a directed cycle $\beta \subset U(H)$ (for some new choices of direction of edges) that is sent onto $c$. Suppose that 
+\begin{equation}
+[\beta] = \sum_{j} a_{j}\ [\alpha_{j}]
+\label{eq:linear_rel}
+\end{equation}
+is a nontrivial ${\mathbb{Z}}$-linear relation between $[\beta]$ and the family $\{ [\alpha_{i}] \}_{i}$. The quotient space obtained by collapsing each $\Sigma_{i}$ to a point $x_{i} \in \partial \Sigma_{i}$ is a closed surface $S$. The quotient map $q:\Sigma \to S$ induces a map $q_{*}:H_{1}(\Sigma) \to H_{1}(S)$ such that $q_{*}([\beta]) = [c] \not= 0$. Applying $q_{*}:H_{1}(\Sigma) \to H_{1}(S)$ to the linear relation $(\ref{eq:linear_rel})$  yields
+$$ 0 \not= [c] = q_{*}([\beta]) = \sum_{j} a_{j} q_{*}([\alpha_{i}]) = 0, $$
+which is absurd. (The equality $q_{*}([\alpha_{i}]) = 0$ follows
+from the conditions (1)-(3) above.) Therefore the family $\{ [\beta], [\alpha_{i}] \}$ is still 
+${\mathbb{Z}}$-independent in $H_{1}(\Sigma)$. But this shows that the genus of $\Sigma$ is greater than $\sum_{i} g_{i} = \sum_{i} g_{\rm{em}}(G_{i})$. This concludes the proof. 
+%Since $g_{\rm{em}}(c) \geq 1$, $g_{\rm{em}}(\beta) \geq 1$ hence $[\beta]\not=0$ in $H_{1}(S)$ for any embedding of $\beta$ into any surface $S$.
+
+
+
+
+
+%According to Prop.~\ref{prop:unreduced_condensation}, there is a commutative diagram
+%$$ \xymatrix{ H \ar[rr]^-{({\rm{pr}}_{H}, 1_{E_{H}})} \ar[d]_-{(p,q)} && C^{\circlearrowleft}(H) \ar[d]^{([p],q)} \\ 
+%G \ar[rr]^-{({\rm{pr}}_{G}, 1_{E_{G}})} && C^{\circlearrowleft}(G) 
+%}$$
+
+
+%Using the canonical inclusion graph morphism $C(G) \subseteq C^{\circlearrowleft}(G)$, we may regard the cycle $c$ as sitting inside $C^{\circlearrowleft}(G)$ (for some new direction of $C^{\circlearrowleft}(G)$).  Let $\tilde{c}$ be a minimal (with respect to length) directed cycle in $C^{\circlearrowleft}(H)$ whose image in $C^{\circlearrowleft}(G)$ is $c$. There are two cases to consider:
+%
+%\noindent (1) $[\tilde{c}] = 0$ in $H_{1}(\Sigma)$. Since by hypothesis $[c] \not= 0$ in $H_{1}(\Sigma)$, $\tilde{c}$ is not isomorphic to $c$ (as a directed graph). Therefore (lemma), the length of $\tilde{c}$ is strictly greater (a multiple) than the length of $c$. But then $\tilde{c}$ has more vertices than $c$, so $C^{\circlearrowleft}(H)$ has more vertices than $C^{\circlearrowleft}(G)$. Therefore $H$ has at least one extra strongly component $\tilde{G}_{i}$ that lies over $G_{i}$. Hence $g(G) \geq \sum_{j \not= i} g_{\rm{em}}(G_j) + 2g_{\rm{em}}(G_i) > \sum_{i} g_{\rm{em}}(G_{j})$.\\
+%
+%\noindent (2) Therefore, we are left to consider the case when any directed cycle $c$ as specified above has a preimage $\tilde{c}$ in $C^{\circlearrowleft}(H)$ such that $[\tilde{c}] \not= 0$ in $H_{1}(\Sigma)$. Taking for $c$ a directed cycle (possibly with repetitions) that runs over any edge of $U(C^{\circlearrowleft}(G))$ so that the underlying subgraph contains $U(C^{\circlearrowleft}(G))$, we deduce that 
+%
+%\noindent (2) $[\tilde{c}] \not= 0$ in $H_{1}(\Sigma)$. Since $ ({\rm{pr}}_{H}, 1_{E}): H \to C^{\circlearrowleft}(H)$ is onto, there exists a directed cycle $\beta \subset H$ that is sent onto $\tilde{c}$. Since $g(H) = g_{\rm{em}}(G) \geq \sum_{i} g_{\rm{em}}(G_i)$, $H$ supports a family $\{ \alpha_{i} \}_{i}$ of $2\sum_{i} g_{\rm{em}}(G_{i})$ directed cycles that are ${\mathbb{Z}}$-independent homology classes in $H_{1}(\Sigma)$. Consider the following diagram
+%%$$\xymatrix{
+%%\Sigma \ar[r] \Sigma/\cup_{
+%%}$$
+%
+%Suppose that a relation $[\beta] = \sum_{k} \lambda_{k} [\alpha_{k}]$ holds. 
 
 \end{proof}
 

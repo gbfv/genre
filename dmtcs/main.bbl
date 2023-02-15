@@ -1,87 +1,114 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
 
-%\bibitem[AGH17]{AGH17}
-%Remi C. Avohou, Joseph  Ben Geloun and
-%Mahouton N. Hounkonnou, 
-%\newblock Embedding Half-Edge Graphs in Punctured Surfaces.
-%\newblock Preprint, 2017.
+%\bibitem{Adamek}
+%Ji\v{r}\'{\i} Ad\'amek and V\v{e}ra Trnkov\`a.
+%\newblock {\em Automata and Algebra in Categories}
+%\newblock Springer, 1990.
 
-\bibitem[BH62]{Ad62}
-Joseph Battle, Frank Harary, Yukihiro Kodama and J.~W.~T.~Young,
-\newblock Additivity of the genus of
-a graph. 
-\newblock Bull. Amer. Math. Soc., 68(6): 565--568, 1962.
+\bibitem{BD16}
+Guillaume Bonfante and Florian~L. Deloup.
+\newblock The genus of regular languages.
+\newblock {\em Math. Struct. Comput. Sci.}, 28(1):14--44, 2018.
 
-\bibitem[BC76]{BC76}
-Ronald~V.~Book and Ashok~K.~Chandra, 
-\newblock Inherently planar automata, 
-\newblock Acta Informatica~6, 89--94, 1976.
+\bibitem{BD19}
+Guillaume Bonfante and Florian~L. Deloup.
+\newblock Decidability of regular language genus computation.
+\newblock {\em Math. Struct. Comput. Sci.}, 29(9):1428--1443, 2019.
 
+\bibitem{BD22}
+Guillaume Bonfante and Florian~L. Deloup.
+\newblock The genus of regular languages and directed graph emulators.
+\newblock Submitted to JTCS.
 
-\bibitem[BD16]{BD16}
-Guillaume Bonfante and Florian Deloup.
-\newblock The genus of regular languages, 
-\newblock Math. Structures in Computer Science~28(1), 14--44, 2018. 
+\bibitem{BD23}
+Guillaume Bonfante and Florian~L. Deloup.
+\newblock Multi-input genus and regular languages supported by a directed
+  graph.
+\newblock {\em in progress}, 2022.
 
-\bibitem[BD19]{BD19}
-Guillaume Bonfante and Florian Deloup.
-\newblock Decidability of Regular Language Genus Computation, 
-\newblock Math. Structures in Computer Science~29(9), 1428--1443, 2019.
+\bibitem{BC76}
+Ronald~V. Book and Ashok~K. Chandra.
+\newblock Inherently nonplanar automata.
+\newblock {\em Acta Informatica}, 6:89–94, 1976.
 
-\bibitem[BD22]{BD22}
-Guillaume Bonfante and Florian Deloup.
-\newblock The decidability of the genus of regular languages and directed emulators, 
-\newblock arxiv.org/abs/2109.05735v3.
-
-\bibitem[FD17]{FD17}
-Florian Deloup.
-\newblock Topological Star Height.
-\newblock Preprint, 2017.
-
-
-\bibitem[Eil74]{Eilenberg} 
-Samuel Eilenberg.
-\newblock {\emph{Automata, Languages and Machines}}, vol. A.
-\newblock Academic Press, New York 1974.
-
-\bibitem[FL88]{FL88}
-Michael~R. Fellows and Michael~A. Langston.
-\newblock Nonconstructive tools for proving polynomial-time decidability.
-\newblock {\em J. ACM}, 35(3):727--739, June 1988.
-
-\bibitem[Hl99]{Hl99}
-Petr Hlin\v{e}n\'y.
-\newblock A note on possible extensions of Negami's conjecture.
-\newblock Journal of Graph Theory 32 (3), 233--240, 1999.
-
-%\bibitem[KKR12]{KKR12}
-%Ken-ichi Kawarabayashi, Yusuke Kobayashi, Bruce Reed. 
-%\newblock The disjoint paths problem in quadratic time.
-%\newblock Journal of Combinatorial Theory, Series B, 102 (2), 424--435, 2012.
-
-%\bibitem[RY09]{RY09}
-%Yoav Rieck and Yosushi Yamashita.
-%\newblock Finite Planar Emulators for $K_{4,5} - K_{2}$ and
-%$K_{1,2,2,2}$ and Fellows conjecture. 
-%\newblock European Journal of Combinatorics 31, 903--907, 2010.
+%\bibitem{Carbone09}
+%Alessandra Carbone.
+%\newblock Logical structures and genus of proofs.
+%\newblock {\em Annals of Pure and Applied Logic}, 161 (2):139--149, 2009.
 %
-%\bibitem[RS04]{RS04}
+%\bibitem{CDHK13}
+%Markus Chimani, Martin Derka, Petr Hlin{\v{e}}n{\'y}, and Mat{\v{e}}j
+%  Klus{\'a}{\v{c}}ek.
+%\newblock How not to characterize planar-emulable graphs.
+%\newblock {\em Advances in Applied Mathematics}, 50(1):46--68, 2013.
+%
+%\bibitem{ColcombetP19}
+%Thomas Colcombet and Daniela Petri\c{s}an.
+%\newblock Automata minimization: a functorial approach.
+%\newblock {\em Log. Methods Comput. Sci.}, 16(1):32:1--32:28, 2020.
+
+\bibitem{Eilenberg}
+Samuel Eilenberg.
+\newblock {Automata, Languages and Machines}.
+\newblock {\em Academic Press}, {V}ol A(New York), 1974.
+
+%\bibitem{FL88}
+%Michael~R. Fellows and Michael~A. Langston.
+%\newblock Nonconstructive tools for proving polynomial-time decidability.
+%\newblock {\em J. ACM}, 35(3):727--739, June 1988.
+%
+%\bibitem{Girard87}
+%Jean-Yves Girard.
+%\newblock Linear logic.
+%\newblock {\em J.~Theoretical Computer Science}, 50 (1):1--102, 1987.
+%
+%\bibitem{Hl99}
+%Petr Hlin\v{e}n\'y.
+%\newblock {K}4,4 -e has no finite planar cover.
+%\newblock {\em Journal of Graph Theory}, 27:51--60, 1998.
+
+%\bibitem{JoyalNW96}
+%Andr{\'{e}} Joyal, Mogens Nielsen, and Glynn Winskel.
+%\newblock Bisimulation from open maps.
+%\newblock {\em Inf. Comput.}, 127(2):164--185, 1996.
+
+%\bibitem{KiZh14}
+%Shiva Kintali and Qiuyi Zhang.
+%\newblock Forbidden directed minors and kelly-width.
+%\newblock {\em J. Theoretical Computer Science}, 662:40--47, 2017.
+
+\bibitem{Denis}
+Denis Kuperberg.
+\newblock Directed minors for minimal automata, 2017.
+
+\bibitem{FD17}
+Florian Deloup.
+\newblock Topological Star Height, preprint, 2017.
+
+%\bibitem{mellies07}
+%Paul-Andr\'e Melli\`es.
+%\newblock Categorical semantics of linear logic, 2007.
+
+%\bibitem{RY09}
+%Yo'av Rieck and Yasushi Yamashita.
+%\newblock Finite planar emulators for ${K}_{4,5} - 4{K}_2$ and ${K}_{1,2,2,2}$
+%  and {F}ellows' conjecture.
+%\newblock {\em European Journal of Combinatorics}, 31, 2010.
+
+%\bibitem{RS04}
 %Neil Roberston and Paul Seymour.
-%\newblock Graph Minors. XX. Wagner's conjecture.
-%\newblock Journal of Combinatorial Theory, Series B, 92 (2): 325–357, 2004.
+%\newblock Graph minors. xx. wagner's conjecture.
+%\newblock {\em Journal of Combinatorial Theory, Series B}, 92(2):325--357,
+%  2004.
 
-\bibitem[Kup17]{Kuperberg} Denis Kuperberg, Directed Minors for Minimal Automata, preprint, 2017.
+\bibitem{Sak09}
+Jacques Sakarovitch.
+\newblock {\em Elements of Automata Theory}.
+\newblock Cambridge University Press, 2009.
 
-\bibitem[Sak03]{Sak03} Jacques Sakarovitch. 
-\newblock {\emph{Elements of Automata Theory}}.
-\newblock Cambridge University Press, Cambridge, 2009.
-
-\bibitem[St83]{Stallings} John Stallings. \newblock
-Topology of finite graphs.
-\newblock Inventiones Math.~71, 551--565, 1983.
-
-%\bibitem[Ye11]{Yeats} Karen Yeats,
-%\newblock {\emph{A Combinatorial Perspective on Quantum Field Theory}}.
-%\newblock Springer, 2017.
+%\bibitem{Statman74}
+%Richard Statman.
+%\newblock {\em Structural Complexity of Proofs}.
+%\newblock PhD thesis, Stanford University, Stanford, CA, 1974.
 
 \end{thebibliography}
